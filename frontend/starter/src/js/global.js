@@ -15,6 +15,7 @@ search.init();
 
 import accordions from './_project/accordions';
 accordions.init();
+
 import modalHandler from './_project/modal';
 modalHandler.init();
 

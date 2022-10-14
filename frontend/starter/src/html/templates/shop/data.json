@@ -29,6 +29,19 @@
 			"title": "Imunomania",
 			"label": "Knjiga",
 			"text": "Napravi nove navike uz novu ishranu"
+		},
+		{
+			"title": "Imunomania",
+			"label": "Knjiga",
+			"text": "Napravi nove navike uz novu ishranu"
+		},
+		{
+			"title": "Imunomania",
+			"label": "Knjiga",
+			"text": "Napravi nove navike uz novu ishranu"
 		}
-	]
+	],
+	"pagination": {
+		">>": "modules/pagination/data.json"
+	}
 }

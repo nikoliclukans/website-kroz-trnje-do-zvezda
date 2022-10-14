@@ -15,15 +15,15 @@
 							<span class="card-label">{{label}}</span>
 						</div>
 						<div class="shop-card__content">
-							<h4 class="h4">
+							<h3 class="h3">
 								{{title}}
-							</h4>
+							</h3>
 							<p class="shop-card__text">{{text}}</p>
 							<span class="shop-card__price">3.000 rsd</span>
-							<button class="shop-card__more">saznaj vise</button>
+							<button class="shop-card__more js-modal-open">saznaj vise</button>
 							<a href="contact.html" class="btn">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
 						</div>
-						<div class="shop-card__popup">
+						<div class="shop-card__popup js-modal-overlay">
 							<div class="shop-card__popup-wrap">
 								<div class="shop-card__slider"></div>
 								<div class="shop-card__popup-text">
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 	</div>
-
+{{> pagination data.pagination}}
 {{> footer data.footer}}
 
 {{/master}}
