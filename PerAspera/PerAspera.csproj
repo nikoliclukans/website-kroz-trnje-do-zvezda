@@ -31,6 +31,7 @@
     <None Include="wwwroot\assets\fonts\TwCenMT-Bold.woff2" />
     <None Include="wwwroot\assets\fonts\TwCenMT-Regular.woff2" />
     <None Include="wwwroot\assets\svg\ico-chevron-down.svg" />
+    <None Include="wwwroot\assets\svg\ico-chevron-left.svg" />
     <None Include="wwwroot\assets\svg\ico-chevron-right.svg" />
     <None Include="wwwroot\assets\svg\ico-close-x.svg" />
     <None Include="wwwroot\assets\svg\ico-dog.svg" />
