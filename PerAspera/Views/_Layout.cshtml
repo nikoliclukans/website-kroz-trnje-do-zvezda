@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inherits UmbracoViewPage<PerAspera.Models.Generated.IPageBase>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -157,11 +159,11 @@
 </head>
 
 <body class="">
-	@Html.Partial("_Header")
+	@Html.Partial("_Header", new PerAspera.Models.ViewModels.HeaderViewModel(Model))
 
 	@RenderBody()
 
-	@Html.Partial("_Footer")
+	@Html.Partial("_Footer", new PerAspera.Models.ViewModels.FooterViewModel(Model))
 
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
