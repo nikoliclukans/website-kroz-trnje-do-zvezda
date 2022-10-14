@@ -2,5 +2,87 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Blogs>
 @using ContentModels = PerAspera.Models.Generated;
 @{
-	Layout = null;
+	Layout = "_Layout";
 }
+
+	<div class="breadcrumbs">
+		<div class="wrap">
+			<ul class="breadcrumbs-list">
+				<li class="breadcrumbs-item home">
+					<a href="/" class="breadcrumbs-link"> Početna <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
+					</a>
+				</li>
+				<li class="breadcrumbs-item">
+					<a href="javascript:;" class="breadcrumbs-link">Blog</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="filters">
+		<div class="wrap">
+			<h2 class="h2">Filteri</h2>
+			<div class="filters-buttons">
+				<div class="select-wrap">
+					<select name="year" id="">
+						<option value="">Kategorija</option>
+						<option value="year1">Motivacija</option>
+						<option value="year2">Recepti</option>
+					</select>
+				</div>
+				<div class="select-wrap">
+					<select name="year" id="">
+						<option value="">Godina</option>
+						<option value="year1">2020</option>
+						<option value="year2">2021</option>
+					</select>
+				</div>
+				<button type="reset" class="filters-reset">Resetuj</button>
+			</div>
+		</div>
+	</div>
+	<div class="cards">
+		<div class="wrap">
+			<div class="cards-wrap">
+				<div class="card">
+					<img src="assets/images/stasa.png" alt="slide1">
+					<span class="card-label">Trening</span>
+					<a class="card-content" href="blog-aticle.html">
+						<h3 class="h3">This is Title</h3>
+						<span class="card-date">05.09.2022.</span>
+					</a>
+				</div>
+				<div class="card">
+					<img src="assets/images/stasa2.png" alt="slide1">
+					<span class="card-label">Motivacija</span>
+					<a class="card-content" href="blog-aticle.html">
+						<h3 class="h3">Mauris condimentum dui in sapien pellentesque</h3>
+						<span class="card-date">05.09.2022.</span>
+					</a>
+				</div>
+				<div class="card">
+					<img src="assets/images/book.png" alt="slide1">
+					<span class="card-label">Recepti</span>
+					<a class="card-content" href="blog-aticle.html">
+						<h3 class="h3">Vivamus tempus lorem nec tincidunt consequat</h3>
+						<span class="card-date">05.09.2022.</span>
+					</a>
+				</div>
+				<div class="card">
+					<img src="assets/images/stasa2.png" alt="slide1">
+					<span class="card-label">Recepti</span>
+					<a class="card-content" href="blog-aticle.html">
+						<h3 class="h3">Maecenas augue nibh, auctor nec enim et</h3>
+						<span class="card-date">05.09.2022.</span>
+					</a>
+				</div>
+				<div class="card">
+					<img src="assets/images/stasa2.png" alt="slide1">
+					<span class="card-label">Recepti</span>
+					<a class="card-content" href="blog-aticle.html">
+						<h3 class="h3">Vivamus tempus lorem nec tincidunt consequat</h3>
+						<span class="card-date">05.09.2022.</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
