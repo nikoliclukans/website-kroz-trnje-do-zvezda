@@ -6,6 +6,7 @@ const slider = {
 
 	init: function() {
 		this.swiper();
+		this.shopSwiper();
 	},
 
 	swiper: function() {
@@ -18,6 +19,22 @@ const slider = {
 				el: '.swiper-scrollbar',
 				hide: false,
 				draggable: true
+			},
+
+			modules: [Navigation, Pagination, Scrollbar]
+		});
+	},
+	shopSwiper: function() {
+		// eslint-disable-next-line no-unused-vars
+		const shopSwiper = new Swiper('.js-shop-slider', {
+			loop: false,
+			slidesPerView: 1,
+			pagination: {
+				el: '.swiper-pagination',
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
 			},
 
 			modules: [Navigation, Pagination, Scrollbar]
