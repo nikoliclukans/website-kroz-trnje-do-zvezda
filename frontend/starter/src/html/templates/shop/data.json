@@ -1,0 +1,34 @@
+{
+	"template": "shop",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "Shop"
+		}
+	},
+
+	"shopCard": [
+		{
+			"title": "Imunomania",
+			"label": "Knjiga",
+			"text": "Napravi nove navike uz novu ishranu"
+		},
+		{
+			"title": "Imunomania",
+			"label": "Knjiga",
+			"text": "Napravi nove navike uz novu ishranu"
+		},
+		{
+			"title": "Imunomania",
+			"label": "Knjiga",
+			"text": "Napravi nove navike uz novu ishranu"
+		}
+	]
+}

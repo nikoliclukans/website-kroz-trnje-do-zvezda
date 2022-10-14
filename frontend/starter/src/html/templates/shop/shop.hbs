@@ -1,0 +1,45 @@
+{{#> master this}}
+
+{{> header data.header}}
+
+{{> breadcrumbs data.breadcrumbs}}
+
+	<div class="shop-cards">
+		<div class="wrap">
+			<div class="shop-cards__wrap">
+				{{#if shopCard}}
+				{{#each shopCard}}
+					<div class="shop-card">
+						<div class="shop-card__img">
+							<img src="assets/images/book.png" alt="">
+							<span class="card-label">{{label}}</span>
+						</div>
+						<div class="shop-card__content">
+							<h4 class="h4">
+								{{title}}
+							</h4>
+							<p class="shop-card__text">{{text}}</p>
+							<span class="shop-card__price">3.000 rsd</span>
+							<button class="shop-card__more">saznaj vise</button>
+							<a href="contact.html" class="btn">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+						</div>
+						<div class="shop-card__popup">
+							<div class="shop-card__popup-wrap">
+								<div class="shop-card__slider"></div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">{{title}}</h3>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+									<p class="shop-card__paragraph">Preko 140 recepata i ideja za 30 dana zdravih, izbalansiranih i ukusnih obroka! Doručak, ručak, večera, hleb i slane grickalice, smutiji, slatkiši, supe, čorbe, umaci i namazi, domaći sirupi, čajevi...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
+
+{{> footer data.footer}}
+
+{{/master}}
