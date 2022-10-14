@@ -50,6 +50,14 @@ namespace PerAspera.Models.Generated
 		// properties
 
 		///<summary>
+		/// Categories Container
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("categoriesContainer")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent CategoriesContainer => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "categoriesContainer");
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]

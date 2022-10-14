@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta charset="utf-8">
+	<title>Seo Title</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="canonical" href="http://umbraco9-test.local/">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="googlebot" content="noindex, nofollow">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://umbraco9-test.local/">
+	<meta property="og:locale" content="en-US">
+	<meta property="og:site_name" content="Site name">
+	<meta property="og:title" content="Home">
+	<meta property="og:description" content="Home page open graph description">
+	<meta property="og:image" content="http://umbraco9-test.local/media/kklffmoc/img3.jpg">
+	<meta property="og:image:type" content="image/jpg">
+	<meta property="og:image:width" content="1120">
+	<meta property="og:image:height" content="700">
+	<meta property="og:image:alt" content="">
+	<!-- main css file -->
+	<link rel="stylesheet" href="css/style.min.css">
+	<!-- global js file -->
+	<script defer src="js/global.min.js"></script>
+	<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
+	<script>
+		let optionalCookies = [{
+			name: "analytics",
+			label: "Analytics cookies",
+			description: "Analytical cookies help us to improve our website by collecting and reporting information on its usage.",
+			cookies: ["_ga", "_gid", "_gat"],
+			onAccept: function() {
+				(function(w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({
+						"gtm.start": new Date().getTime(),
+						event: "gtm.js"
+					});
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != "dataLayer" ? "&l=" + l : "";
+					j.async = true;
+					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, "script", "dataLayer", "GTM-TVGRBHL");
+				if (typeof BrowseAloud != "undefined") {
+					BrowseAloud.analytics = BrowseAloud.org_analytics;
+				}
+			},
+			onRevoke: function() {
+				window["ga-disable-GTM-TVGRBHL"] = true;
+				if (typeof BrowseAloud != "undefined") {
+					BrowseAloud.analytics = BrowseAloud.no_analytics;
+				}
+			},
+		}, {
+			name: "marketing",
+			label: "Marketing (targeting or advertising) cookies",
+			description: "We use marketing (targeting or advertising) cookies to help us improve the relevancy of advertising campaigns you receive.",
+			cookies: [],
+			lawfulBasis: "consent",
+			onAccept: function() {},
+			onRevoke: function() {},
+			thirdPartyCookies: [{
+				name: "Ad personalization",
+				optOutLink: "https://adssettings.google.com/authenticated?hl=en"
+			}],
+		}, ];
+		let brandingOptions = {
+			fontSizeTitle: "16px",
+			fontSizeIntro: "16px",
+			fontSizeHeaders: "16px",
+			fontSize: "16px",
+			alertBackground: "#cc4141",
+			alertText: "#fff",
+			removeAbout: true,
+			removeIcon: true
+		};
+		let onLoad = function() {
+			let cookieSettingsBtn = document.getElementsByClassName("ccc-notify-link")[0];
+			if (cookieSettingsBtn) {
+				cookieSettingsBtn.onclick = function() {
+					let panelInfo = document.getElementById("ccc-info");
+					let confirmButton = document.createElement("button");
+					confirmButton.classList.add("btn-info");
+					confirmButton.setAttribute("id", "confirm-btn");
+					confirmButton.innerText = "Confirm Settings";
+					panelInfo.appendChild(confirmButton);
+				};
+			}
+		};
+		var config = getConfigByWindowSize();
+
+		function getConfigByWindowSize() {
+			if (window.screen.width > 768) {
+				return {
+					apiKey: "fa2ccff0bfa8a43281efcaa76e77d077a745640d",
+					product: "PRO_MULTISITE",
+					initialState: "notify",
+					necessaryCookies: ["UMB-XSRF-TOKEN"],
+					position: "LEFT",
+					layout: "popup",
+					text: {
+						settings: "Cookie settings"
+					},
+					statement: {
+						description: "For more detailed information about the cookies we use, see our",
+						name: "cookie policy",
+						url: "/cookie-policy/",
+						updated: "01/12/2019"
+					},
+					optionalCookies: optionalCookies,
+					branding: brandingOptions,
+					onLoad: onLoad,
+				};
+			} else {
+				return {
+					apiKey: "fa2ccff0bfa8a43281efcaa76e77d077a745640d",
+					product: "PRO_MULTISITE",
+					initialState: "notify",
+					necessaryCookies: ["UMB-XSRF-TOKEN"],
+					position: "RIGHT",
+					layout: "popup",
+					text: {
+						settings: "Cookie settings"
+					},
+					statement: {
+						description: "For more detailed information about the cookies we use, see our",
+						name: "cookie policy",
+						url: "/cookie-policy/",
+						updated: "01/12/2019"
+					},
+					optionalCookies: optionalCookies,
+					branding: brandingOptions,
+				};
+			}
+		}
+		CookieControl.load(config);
+	</script>
+	<!-- http://PROJECTNAME.emperordev.com/ -->
+	<!-- globalVars -> cookieCivic = true -->
+	<!-- for cookie trigger add class on link 'js-cookie-opener' -->
+	<!-- <a class="js-cookie-opener" href="javascript:;">Cookie settings</a> -->
+	<!-- var config = {
+		apiKey: 'fa2ccff0bfa8a43281efcaa76e77d077a745640d',
+		product: 'PRO_MULTISITE',
+		};
+		
+		CookieControl.load( config ); -->
+	<link href="favicon.ico" rel="icon">
+</head>
+
+<body class="">
+	<header class="header">
+		<div class="wrap">
+			<div class="header__container">
+				<a href="/" class="header__home">
+					<img src="assets/images/logo.png" alt="" class="header__logo">
+				</a>
+				<nav class="nav">
+					<ul class="nav__list" role="menubar">
+						<li class="nav__item" role="menuitem">
+							<a href="index.html" class="nav__link">Početna</a>
+						</li>
+						<li class="nav__item" role="menuitem">
+							<a href="about.html" class="nav__link">O nama</a>
+						</li>
+						<li class="nav__item" role="menuitem">
+							<a href="blog.html" class="nav__link">Blog</a>
+						</li>
+						<li class="nav__item" role="menuitem">
+							<a href="stories.html" class="nav__link">Vaše priče</a>
+						</li>
+						<li class="nav__item" role="menuitem">
+							<a href="shop.html" class="nav__link">Shop</a>
+						</li>
+						<li class="nav__item" role="menuitem">
+							<a href="contact.html" class="nav__link">Kontakt</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header-features">
+					<div class="header-search">
+						<div class="header-search__icon">
+							<button type="button" class="header-search__open js-search-open">
+								<span class="icon font-ico-search open-search-icon"><span class="sr-only">Search icon</span></span>
+								<span class="icon font-ico-close-x"><span class="sr-only">Close search icon</span></span>
+							</button>
+							<div class="header-search__wrap">
+								<input type="text" class="header-search__input" placeholder="Pretrazi...">
+								<span class="icon font-ico-search"><span class="sr-only">Search icon</span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="breadcrumbs">
+		<div class="wrap">
+			<ul class="breadcrumbs-list">
+				<li class="breadcrumbs-item home">
+					<a href="/" class="breadcrumbs-link"> Početna <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
+					</a>
+				</li>
+				<li class="breadcrumbs-item">
+					<a href="javascript:;" class="breadcrumbs-link">Shop</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="shop-cards">
+		<div class="wrap">
+			<div class="shop-cards__wrap">
+				<div class="shop-card">
+					<div class="shop-card__img">
+						<img src="assets/images/book.png" alt="">
+						<span class="card-label">Knjiga</span>
+					</div>
+					<div class="shop-card__content">
+						<h3 class="h3"> Imunomania </h3>
+						<p class="shop-card__text">Napravi nove navike uz novu ishranu</p>
+						<span class="shop-card__price">3.000 rsd</span>
+						<button class="shop-card__more js-modal-open">saznaj vise</button>
+						<div class="shop-card__popup js-modal-overlay">
+							<div class="shop-card__popup-wrap">
+								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<div class="shop-card__slider">
+									<div class="swiper-container js-shop-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+										</div>
+										<div class="swiper-buttons">
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+											<div class="swiper-button-prev"></div>
+										</div>
+									</div>
+								</div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">Imunomania</h3>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+								</div>
+							</div>
+						</div>
+						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+					</div>
+				</div>
+				<div class="shop-card">
+					<div class="shop-card__img">
+						<img src="assets/images/book.png" alt="">
+						<span class="card-label">Knjiga</span>
+					</div>
+					<div class="shop-card__content">
+						<h3 class="h3"> Imunomania </h3>
+						<p class="shop-card__text">Napravi nove navike uz novu ishranu</p>
+						<span class="shop-card__price">3.000 rsd</span>
+						<button class="shop-card__more js-modal-open">saznaj vise</button>
+						<div class="shop-card__popup js-modal-overlay">
+							<div class="shop-card__popup-wrap">
+								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<div class="shop-card__slider">
+									<div class="swiper-container js-shop-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+										</div>
+										<div class="swiper-buttons">
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+											<div class="swiper-button-prev"></div>
+										</div>
+									</div>
+								</div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">Imunomania</h3>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+								</div>
+							</div>
+						</div>
+						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+					</div>
+				</div>
+				<div class="shop-card">
+					<div class="shop-card__img">
+						<img src="assets/images/book.png" alt="">
+						<span class="card-label">Knjiga</span>
+					</div>
+					<div class="shop-card__content">
+						<h3 class="h3"> Imunomania </h3>
+						<p class="shop-card__text">Napravi nove navike uz novu ishranu</p>
+						<span class="shop-card__price">3.000 rsd</span>
+						<button class="shop-card__more js-modal-open">saznaj vise</button>
+						<div class="shop-card__popup js-modal-overlay">
+							<div class="shop-card__popup-wrap">
+								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<div class="shop-card__slider">
+									<div class="swiper-container js-shop-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+										</div>
+										<div class="swiper-buttons">
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+											<div class="swiper-button-prev"></div>
+										</div>
+									</div>
+								</div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">Imunomania</h3>
+								</div>
+							</div>
+						</div>
+						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+					</div>
+				</div>
+				<div class="shop-card">
+					<div class="shop-card__img">
+						<img src="assets/images/book.png" alt="">
+						<span class="card-label">Knjiga</span>
+					</div>
+					<div class="shop-card__content">
+						<h3 class="h3"> Imunomania </h3>
+						<p class="shop-card__text">Napravi nove navike uz novu ishranu</p>
+						<span class="shop-card__price">3.000 rsd</span>
+						<button class="shop-card__more js-modal-open">saznaj vise</button>
+						<div class="shop-card__popup js-modal-overlay">
+							<div class="shop-card__popup-wrap">
+								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<div class="shop-card__slider">
+									<div class="swiper-container js-shop-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+										</div>
+										<div class="swiper-buttons">
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+											<div class="swiper-button-prev"></div>
+										</div>
+									</div>
+								</div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">Imunomania</h3>
+								</div>
+							</div>
+						</div>
+						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+					</div>
+				</div>
+				<div class="shop-card">
+					<div class="shop-card__img">
+						<img src="assets/images/book.png" alt="">
+						<span class="card-label">Knjiga</span>
+					</div>
+					<div class="shop-card__content">
+						<h3 class="h3"> Imunomania </h3>
+						<p class="shop-card__text">Napravi nove navike uz novu ishranu</p>
+						<span class="shop-card__price">3.000 rsd</span>
+						<button class="shop-card__more js-modal-open">saznaj vise</button>
+						<div class="shop-card__popup js-modal-overlay">
+							<div class="shop-card__popup-wrap">
+								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<div class="shop-card__slider">
+									<div class="swiper-container js-shop-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide shop-slide">
+												<img src="assets/images/book.png" alt="slide1">
+											</div>
+										</div>
+										<div class="swiper-buttons">
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+											<div class="swiper-button-prev"></div>
+										</div>
+									</div>
+								</div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">Imunomania</h3>
+								</div>
+							</div>
+						</div>
+						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="pagination">
+			<button class="previous disabled" type="button"><i class="font-ico-chevron-left"></i>Prethodna</button>
+			<ul class="pagination-list">
+				<li><a class="pagination-button active" href="#">1</a></li>
+				<li><a class="pagination-button" href="#">2</a></li>
+				<li><a class="pagination-button" href="#">3</a></li>
+			</ul>
+			<button class="next" type="button">Sledeća<i class="font-ico-chevron-right"></i></button>
+		</div>
+	</div>
+	<div class="order-form">
+		<div class="wrap">
+			<div class="order-form__content">
+				<h3 class="h3">This is Title</h3>
+				<p>Aliquam vestibulum eleifend ipsum sed finibus. Praesent mattis id tellus quis ultrices. Donec eget nulla ut nisi consectetur bibendum in eget magna. Donec consectetur accumsan nulla, quis lobortis erat. Integer sed accumsan eros. Morbi vel justo imperdiet, dapibus nisi quis, vestibulum tortor. Duis eget dui metus. Sed eget lacus consectetur, porta tellus ut, placerat urna.</p>
+				<form action="" class="order-form__form">
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="name">Ime*</label>
+							<input type="text" id="name">
+						</div>
+						<div class="form-box__field">
+							<label for="name">Prezime*</label>
+							<input type="text" id="lastname">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="name">Email adresa*</label>
+							<input type="email" id="email">
+						</div>
+						<div class="form-box__field">
+							<label for="name">Adresa za slanje*</label>
+							<input type="text" id="address">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="name">Broj telefona*</label>
+							<input type="text" id="phone">
+						</div>
+						<div class="form-box__field">
+							<label for="name">Porucujem:*</label>
+							<div class="select-wrap">
+								<select name="year" id="">
+									<option value="">Odaberite predmet za poručivanje...</option>
+									<option value="">Imunomania</option>
+									<option value="">Fearless kapa</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<span class="form-text">* Obavezna polja</span>
+					<button type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="wrap">
+			<div class="footer__content">
+				<img src="assets/images/footer-logo.png" alt="alt text" class="footer-logo">
+				<nav class="footer-nav">
+					<ul class="footer-nav__list" role="menubar">
+						<li class="footer-nav__item" role="menuitem">
+							<a href="index.html" class="footer-nav__link">Početna</a>
+						</li>
+						<li class="footer-nav__item" role="menuitem">
+							<a href="about.html" class="footer-nav__link">O nama</a>
+						</li>
+						<li class="footer-nav__item" role="menuitem">
+							<a href="blog.html" class="footer-nav__link">Blog</a>
+						</li>
+						<li class="footer-nav__item" role="menuitem">
+							<a href="stories.html" class="footer-nav__link">Vaše priče</a>
+						</li>
+						<li class="footer-nav__item" role="menuitem">
+							<a href="shop.html" class="footer-nav__link">Shop</a>
+						</li>
+						<li class="footer-nav__item" role="menuitem">
+							<a href="contact.html" class="footer-nav__link">Kontakt</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="footer-network">
+					<ul class="footer-network__icons">
+						<li>
+							<a href="https://www.instagram.com/cancer.influencer/?hl=en">
+								<span class="icon font-ico-insta">
+									<span class="sr-only">Instagram link</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span class="icon font-ico-facebook">
+									<span class="sr-only">Facebook link</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<span class="icon font-ico-youtube">
+									<span class="sr-only">youtube link</span>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<span class="footer-copy">Kroz trnje do zvezda © 2022.</span>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

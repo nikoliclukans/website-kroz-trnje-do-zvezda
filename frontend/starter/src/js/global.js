@@ -16,5 +16,8 @@ search.init();
 import accordions from './_project/accordions';
 accordions.init();
 
+import modalHandler from './_project/modal';
+modalHandler.init();
+
 import cookieModal from './_project/cookie-modal';
 cookieModal.init();

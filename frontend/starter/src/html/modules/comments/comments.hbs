@@ -1,0 +1,19 @@
+<div class="comments">
+	<div class="wrap">
+		<div class="comments-wrap">
+			{{#if comments}}
+				{{#each comments}}
+					<div class="comment">
+							<h3 class="h3 comment-heading">{{this.commentedBy}}:</h3>
+							<p class="comment-description">{{this.comment}}</p>
+							<button class="comment-read-more js-modal-open">Pročitaj celu priču<i class="font-ico-chevron-right"></i></button>
+						</div>
+				{{/each}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+
+{{> modal }}
+
+

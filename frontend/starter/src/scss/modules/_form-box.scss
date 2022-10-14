@@ -43,3 +43,29 @@
 		width: 50%;
 	}
 }
+
+.order-form {
+	background: $send;
+	padding: 80px 0;
+}
+.form-row {
+	width: 100%;
+	.form-box__field {
+		width: 50%;
+		&:first-of-type {
+			margin-right: 30px;
+		}
+		input,
+		.select-wrap {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+.form-text {
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 20px;
+	display: block;
+	color: $purple;
+}

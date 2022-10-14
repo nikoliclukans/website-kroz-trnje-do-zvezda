@@ -1,0 +1,65 @@
+// ---------- stories
+// ------------------------------------------------------------------------------
+
+.comments {
+	width: 100%;
+	padding: 80px 0;
+}
+
+.comments-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.comment {
+	border: 2px solid $send;
+	max-width: calc((100% - 60px) / 3);
+	width: 100%;
+	margin-right: 30px;
+	margin-bottom: 30px;
+
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+
+.comment-heading {
+	background-color: $send;
+	padding: 20px;
+}
+
+.comment-description {
+	padding: 20px;
+	font-size: 16px;
+	line-height: 20px;
+	height: 220px;
+	overflow-y: hidden;
+}
+
+.comment-read-more {
+	width: 100%;
+	padding: 7px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $send;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 20px;
+	color: $purple;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+
+	&::before {
+		content: '';
+		width: 100%;
+		height: 80px;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		right: 0;
+	}
+}

@@ -1,15 +1,28 @@
 ﻿@model PerAspera.Models.Generated.BannerWithSideImage
-
-<div class="img-text  img-text--left  img-text--beige">
+@{
+	var backgroundColor = Model.Color == "White" ? string.Empty : "img-text--beige";
+	var leftClass = Model.IsImageLeft ? "img-text--left" : string.Empty;
+}
+<div class="img-text @leftClass @backgroundColor">
 	<div class="wrap">
 		<div class="img-text__wrap">
 			<div class="img-text__text">
-				<h2 class="h2">Image text modul with left image position and beige background</h2>
-				<p>Sed fringilla, ante in fringilla laoreet, dolor urna pulvinar magna, vel luctus lacus urna nec dui. Praesent eu dui at dui posuere fringilla id eu libero. Aliquam at turpis faucibus, tempor ligula lacinia, dictum erat. Phasellus et cursus lorem. Nunc iaculis ex vitae felis pulvinar ultricies. Quisque finibus dolor sed ante sollicitudin, vitae eleifend enim aliquam. Curabitur porta urna sit amet nulla accumsan ullamcorper. Vestibulum diam enim, porta vel consectetur ut, euismod non turpis.</p>
-				<a href="javascript:;" class="btn">Pročitajte više <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+				<h2 class="h2">@Model.Title</h2>
+				<p>
+					@Html.Raw(Model.Text)
+				</p>
+				<div>
+					@if (Model.Button != null)
+					{
+						<a href=@Model.Button.Url class="btn">@Model.Button.Name <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+					}
+				</div>	
 			</div>
 			<div class="img-text__img">
-				<img src="assets/images/book.png" alt="Image alt text">
+				@if (Model.Image != null)
+				{
+					<img src=@Model.Image.Url() alt="Image alt text">
+				}
 			</div>
 		</div>
 	</div>
