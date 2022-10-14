@@ -4,7 +4,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.AboutUs>
 @using ContentModels = PerAspera.Models.Generated;
 @{
-	Layout = null;
+    Layout = "_Layout";
 }
 
 @foreach (var item in Model.Content ?? Enumerable.Empty<PublishedElementModel>())
