@@ -36,7 +36,7 @@ namespace PerAspera.Controllers.Render
 			page.CurrentCategory =category;
 			page.CurrentYear = year;
 			page.BlogList = new PaginatedCollectionViewModel<BlogPage>(blogsQuery.Skip((Convert.ToInt32(currentPage) - 1) * maxItemPerPage).Take(maxItemPerPage),
-				(uint)this.CurrentPage.Children<BlogPage>().Count(),(uint)maxItemPerPage, currentPage);
+				(uint)blogsQuery.Count(),(uint)maxItemPerPage, currentPage);
 
 
             return CurrentTemplate(page);
