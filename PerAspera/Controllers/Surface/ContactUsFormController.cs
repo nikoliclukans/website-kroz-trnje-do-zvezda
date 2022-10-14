@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PerAspera.Infrastructure.Implementation;
 using PerAspera.Infrastructure.Interfaces;
 using PerAspera.Models.Generated;
 using PerAspera.Models.ViewModels;
+using System.Text;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -34,7 +36,12 @@ namespace PerAspera.Controllers.Surface
 			}
 
 			//Send email
-			//_emailService.Send()
+			var message = $"Ime: {mode.Name}\n" +
+				$"Prezime: {mode.Surname}\n" +
+				$"Email adresa: {mode.Email}\n" +
+				$"Poruka: {mode.Message}";
+
+			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage("dev@vegait.rs", "andrej.iviciak@vegait.rs", "Kontaktirajte nas", message, false),new ContactUsEmailTemplate(message));
 
 			return Ok();
 		}

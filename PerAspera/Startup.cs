@@ -1,3 +1,5 @@
+using PerAspera.Extensions;
+
 namespace PerAspera
 {
     public class Startup
@@ -33,6 +35,7 @@ namespace PerAspera
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
+                .AddCustomServices()
                 .Build();
         }
 

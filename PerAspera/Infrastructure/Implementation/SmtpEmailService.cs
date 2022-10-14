@@ -5,6 +5,7 @@ using PerAspera.Infrastructure.Interfaces;
 using Umbraco.Cms.Core.Models.Email;
 using MailKit.Net.Smtp;
 using PerAspera.Infrastructure.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace PerAspera.Infrastructure.Implementation
 {
@@ -12,7 +13,7 @@ namespace PerAspera.Infrastructure.Implementation
     {
         private readonly SmtpConfiguration _smtpConfiguration;
 
-
+    
         public SmtpEmailService(SmtpConfiguration smtpConfiguration)
         {
             _smtpConfiguration = smtpConfiguration ?? throw new ArgumentNullException(nameof(smtpConfiguration));
