@@ -1,0 +1,38 @@
+{{#> master this}}
+
+{{> header data.header}}
+{{> breadcrumbs data.breadcrumbs}}
+<div class="order-form">
+	<div class="wrap">
+		<div class="order-form__content">
+			<h3 class="h3">Pošaljite nam svoju priču</h3>
+			<p>Aliquam vestibulum eleifend ipsum sed finibus. Praesent mattis id tellus quis ultrices. Donec eget nulla ut nisi consectetur bibendum in eget magna. Donec consectetur accumsan nulla, quis lobortis erat. Integer sed accumsan eros. Morbi vel justo imperdiet, dapibus nisi quis, vestibulum tortor. Duis eget dui metus. Sed eget lacus consectetur, porta tellus ut, placerat urna.</p>
+			<form action="" class="order-form__form">
+				<div class="form-row">
+					<div class="form-box__field">
+						<label for="name">Ime*</label>
+						<input type="text" id="name">
+					</div>
+					<div class="form-box__field">
+						<label for="name">Email adresa*</label>
+						<input type="email" id="email">
+					</div>
+				</div>
+
+				<div class="form-box__field">
+					<label for="name">Poruka*</label>
+					<textarea name="" id="msg" cols="30" rows="7"></textarea>
+				</div>
+				<span class="form-text">* Obavezna polja</span>
+				<button type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+			</form>
+		</div>
+	</div>
+</div>
+{{#each data.sections}}
+	{{> (lookup this 'moduleAlias') this}}
+{{/each}}
+
+{{> footer data.footer}}
+
+{{/master}}

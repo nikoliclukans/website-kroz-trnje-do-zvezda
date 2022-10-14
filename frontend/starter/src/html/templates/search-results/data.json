@@ -22,14 +22,6 @@
 			{
 				"moduleAlias": "pagination",
 				">>": "modules/pagination/data.json"
-			},
-			{
-				"moduleAlias": "comments",
-				">>": "modules/comments/data.json"
-			},
-			{
-				"moduleAlias": "modal",
-				">>": "modules/modal/data.json"
 			}
 		]
 	}

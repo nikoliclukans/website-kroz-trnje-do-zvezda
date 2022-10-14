@@ -1,0 +1,26 @@
+{
+	"template": "stories",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "vase price"
+		},
+		"sections": [
+			{
+				"moduleAlias": "comments",
+				">>": "modules/comments/data.json"
+			},
+			{
+				"moduleAlias": "modal",
+				">>": "modules/modal/data.json"
+			}
+		]
+	}
+}
