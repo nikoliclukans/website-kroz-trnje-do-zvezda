@@ -1,0 +1,65 @@
+{{#> master this}}
+
+{{> header data.header}}
+
+{{> breadcrumbs data.breadcrumbs}}
+
+	<div class="shop-cards">
+		<div class="wrap">
+			<div class="shop-cards__wrap">
+				{{#if shopCard}}
+				{{#each shopCard}}
+					<div class="shop-card">
+						<div class="shop-card__img">
+							<img src="assets/images/book.png" alt="">
+							<span class="card-label">{{label}}</span>
+						</div>
+						<div class="shop-card__content">
+							<h3 class="h3">
+								{{title}}
+							</h3>
+							<p class="shop-card__text">{{text}}</p>
+							<span class="shop-card__price">3.000 rsd</span>
+							<button class="shop-card__more js-modal-open">saznaj vise</button>
+							<div class="shop-card__popup js-modal-overlay">
+							<div class="shop-card__popup-wrap">
+								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<div class="shop-card__slider">
+									<div class="swiper-container js-shop-slider">
+										<div class="swiper-wrapper">
+											{{#if slide}}
+											{{#each slide}}
+											<div class="swiper-slide shop-slide">
+												<img src="{{img}}" alt="slide1">
+											</div>
+											{{/each}}
+											{{/if}}
+										</div>
+										<div class="swiper-buttons">
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+      										<div class="swiper-button-prev"></div>
+										</div>
+    								</div>
+								</div>
+								<div class="shop-card__popup-text">
+									<h3 class="h3">{{title}}</h3>
+									{{#each textSlide}}
+									<p class="shop-card__paragraph">{{text}}</p>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+							<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+						</div>
+					</div>
+				{{/each}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
+{{> order-form data.order-form}}
+{{> pagination data.pagination}}
+{{> footer data.footer}}
+
+{{/master}}

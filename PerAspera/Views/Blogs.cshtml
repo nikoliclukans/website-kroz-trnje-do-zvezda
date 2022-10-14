@@ -2,5 +2,87 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Blogs>
 @using ContentModels = PerAspera.Models.Generated;
 @{
-	Layout = null;
+    Layout = "_Layout";
+
 }
+
+<div class="breadcrumbs">
+    <div class="wrap">
+        <ul class="breadcrumbs-list">
+            <li class="breadcrumbs-item home">
+                <a href="/" class="breadcrumbs-link">
+                    Početna <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
+                </a>
+            </li>
+            <li class="breadcrumbs-item">
+                <a href="javascript:;" class="breadcrumbs-link">Blog</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="filters">
+    <div class="wrap">
+        <h2 class="h2">Filteri</h2>
+        <div class="filters-buttons">
+            <div class="select-wrap">
+                <select name="category" id="category" onchange="location = this.value;">
+                    @foreach (var category in Model.CategoriesContainer?.Children<PerAspera.Models.Generated.Category>() ?? Enumerable.Empty<PerAspera.Models.Generated.Category>())
+                    {
+                        @if (Model.IsSelectedCategory(category.Id))
+                        {
+                            <option value="@($"{Model.Url()}?category={category.Id}&year={Model.CurrentYear}")" selected>@category.CategoryName</option>
+                        }
+                        else
+                        {
+                            <option value="@($"{Model.Url()}?category={category.Id}&year={Model.CurrentYear}")">@category.CategoryName</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="select-wrap">
+                <select name="year" id="year" onchange="location = this.value;">
+                    <option value="">Godina</option>
+                    @foreach (var item in Enumerable.Range(2022, (DateTime.UtcNow.Year - 2021)).OrderByDescending(i => i))
+                    {
+                        @if (Model.IsSelectedYear(item))
+                        {
+                            <option value="@($"{Model.Url()}?category={Model.CurrentCategory}&year={item}")" selected>@item</option>
+                        }
+                        else
+                        {
+                            <option value="@($"{Model.Url()}?category={Model.CurrentCategory}&year={item}")">@item</option>
+                        }
+                    }
+                </select>
+            </div>
+            <a href="@Model.Url()" class="filters-reset">Resetuj</a>
+        </div>
+    </div>
+</div>
+<div class="cards">
+    <div class="wrap">
+        <div class="cards-wrap">
+            @foreach (var blog in Model.BlogList.Collection)
+            {
+                <div class="card">
+                    <img src="@(blog.PreviewImage?.MediaUrl() ?? string.Empty)" alt="slide1">
+                    <span class="card-label">@(blog.Category?.Name ?? string.Empty)</span>
+                    <a class="card-content" href="@blog.Url()">
+                        <h3 class="h3">@blog.PreviewTitle</h3>
+                        <span class="card-date">@blog.CreateDate.ToString("dd-MM-yyyy")</span>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="pagination">
+        <a class="previous @(!Model.BlogList.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.BlogList.CurrentPage) - 1) + $"?category={Model.CurrentCategory}&year={Model.CurrentYear}")><i class="font-ico-chevron-left"></i>Prethodna</a>
+        <ul class="pagination-list">
+            @foreach (var item in Enumerable.Range(1, Convert.ToInt32(Model.BlogList.TotalPageNumber)))
+            {
+                <li><a class="pagination-button active" href="@Model.GetPaginatedUrl(item)">@item</a></li>
+            }
+        </ul>
+        <a class="next @(!Model.BlogList.HasNext ? "disabled" : string.Empty) href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.BlogList.CurrentPage) + 1) + $"?category={Model.CurrentCategory}&year={Model.CurrentYear}")">Sledeća<i class="font-ico-chevron-right"></i></a>
+    </div>
+</div>

@@ -1,12 +1,12 @@
 ﻿@model PerAspera.Models.Generated.BannerWithImage
 
-<div class="banner" style="background-image: url('assets/images/banner-landing.png');">
+<div class="banner" style="background-image: url('@Model.Image?.Url(mode: UrlMode.Relative)');">
 	<div class="wrap">
 		<div class="banner__holder">
 			<div class="banner__content  ">
-				<h1 class="h1 banner__title">Imunomania - više od kuvara</h1>
-				<p class="text banner__text">Knjiga koja je nastala na vaš zahtev, koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
-				<a href="javascript:;" class="btn banner-link">Saznajte više <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+				<h1 class="h1 banner__title">@Model.Title</h1>
+				<p class="text banner__text">@Model.Text</p>
+				<a href="javascript:;" class="btn banner-link">@Model.ButtonText<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
 			</div>
 		</div>
 	</div>
