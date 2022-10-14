@@ -22,6 +22,10 @@ namespace PerAspera.Models.Generated
 	/// <summary>Page Base</summary>
 	public partial interface IPageBase : IPublishedContent
 	{
+		/// <summary>Display In Navigation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		bool DisplayInNavigation { get; }
+
 		/// <summary>Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,6 +62,17 @@ namespace PerAspera.Models.Generated
 		}
 
 		// properties
+
+		///<summary>
+		/// Display In Navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[ImplementPropertyType("displayInNavigation")]
+		public virtual bool DisplayInNavigation => GetDisplayInNavigation(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Display In Navigation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		public static bool GetDisplayInNavigation(IPageBase that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "displayInNavigation");
 
 		///<summary>
 		/// Title
