@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Views\Partials\_Footer.cshtml" />
+    <Content Remove="Views\Partials\_Header.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="4.0.0" />
+    <PackageReference Include="Umbraco.Cms" Version="10.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\Models\" />
+    <Folder Include="Models\Generated\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\fonts\KenyanCoffee-Regular.woff2" />
+    <None Include="wwwroot\assets\fonts\svgicons.woff2" />
+    <None Include="wwwroot\assets\fonts\TwCenMT-Bold.woff2" />
+    <None Include="wwwroot\assets\fonts\TwCenMT-Regular.woff2" />
+    <None Include="wwwroot\assets\svg\ico-chevron-down.svg" />
+    <None Include="wwwroot\assets\svg\ico-chevron-right.svg" />
+    <None Include="wwwroot\assets\svg\ico-close-x.svg" />
+    <None Include="wwwroot\assets\svg\ico-dog.svg" />
+    <None Include="wwwroot\assets\svg\ico-download.svg" />
+    <None Include="wwwroot\assets\svg\ico-facebook.svg" />
+    <None Include="wwwroot\assets\svg\ico-insta.svg" />
+    <None Include="wwwroot\assets\svg\ico-menu.svg" />
+    <None Include="wwwroot\assets\svg\ico-search.svg" />
+    <None Include="wwwroot\assets\svg\ico-share.svg" />
+    <None Include="wwwroot\assets\svg\ico-youtube.svg" />
+    <None Include="wwwroot\js\global.min.js" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
+
+</Project>

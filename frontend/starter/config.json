@@ -1,0 +1,9 @@
+{
+	"mode": "development",
+	"isMultilanguage": false,
+	"defaultLanguage": "en",
+	"languages": ["en"],
+	"path": "/",
+	"isNewVersion": true,
+	"foldersToIgnoreInDist": ["media", "umbraco"]
+}

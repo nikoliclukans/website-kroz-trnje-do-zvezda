@@ -1,0 +1,28 @@
+{
+	"template": "search-results",
+	"title": "Serach result",
+	"bodyCssClass": "search-result",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"sections": [
+			{
+				"moduleAlias": "search-block",
+				">>": "modules/search-block/data.json"
+			},
+			{
+				"moduleAlias": "search",
+				">>": "partials/search/data.json"
+			},
+			{
+				"moduleAlias": "pagination",
+				">>": "modules/pagination/data.json"
+			}
+		]
+	}
+}

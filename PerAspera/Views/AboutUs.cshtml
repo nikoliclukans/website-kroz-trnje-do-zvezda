@@ -1,0 +1,13 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using PerAspera.Models.Generated;
+@using PerAspera.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.AboutUs>
+@using ContentModels = PerAspera.Models.Generated;
+@{
+	Layout = null;
+}
+
+@foreach (var item in Model.Content ?? Enumerable.Empty<PublishedElementModel>())
+{
+    @await Html.NestedContent(item, ViewData)
+}

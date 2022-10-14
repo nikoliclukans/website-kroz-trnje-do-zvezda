@@ -1,0 +1,34 @@
+<header class="header">
+	<div class="wrap">
+		<div class="header__container">
+			<a href="/" class="header__home">
+				<img src="{{logo}}" alt="" class="header__logo">
+			</a>
+			{{#if menu}}
+			<nav class="nav">
+				<ul class="nav__list" role="menubar">
+					{{#each menu}}
+					<li class="nav__item" role="menuitem">
+						<a href="{{link}}" class="nav__link">{{text}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</nav>
+			{{/if}}
+			<div class="header-features">
+				<div class="header-search">
+					<div class="header-search__icon">
+						<button type="button" class="header-search__open js-search-open">
+							<span class="icon font-ico-search open-search-icon"><span class="sr-only">Search icon</span></span>
+							<span class="icon font-ico-close-x"><span class="sr-only">Close search icon</span></span>
+						</button>
+						<div class="header-search__wrap">
+							<input type="text" class="header-search__input" placeholder="Pretrazi...">
+							<span class="icon font-ico-search"><span class="sr-only">Search icon</span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

@@ -1,0 +1,33 @@
+// ----------  fonts
+// ------------------------------------------------------------------------------
+
+
+@font-face {
+    font-family: 'KenyanCoffee';
+    src: url('../assets/fonts/KenyanCoffee-Regular.woff2') format('woff2'),
+        url('../assets/fonts/KenyanCoffee-Regular.woff') format('woff'),
+        url('../assets/fonts/KenyanCoffee-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TwCen';
+    src: url('../assets/fonts/TwCenMT-Regular.woff2') format('woff2'),
+        url('../assets/fonts/TwCenMT-Regular.woff') format('woff'),
+        url('../assets/fonts/TwCenMT-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TwCen';
+    src: url('../assets/fonts/TwCenMT-Bold.woff2') format('woff2'),
+        url('../assets/fonts/TwCenMT-Bold.woff') format('woff'),
+        url('../assets/fonts/TwCenMT-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,13 @@
+{{#> master this}}
+
+{{> header data.header}}
+
+Page - @{template}
+
+{{#each data.sections}}
+	{{> (lookup this 'moduleAlias') this}}
+{{/each}}
+
+{{> footer data.footer}}
+
+{{/master}}

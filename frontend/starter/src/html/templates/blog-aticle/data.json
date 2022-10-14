@@ -1,0 +1,45 @@
+{
+	"template": "blog-aticle",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "Nunc ullamcorper finibus tortor"
+		},
+		"card-slider": {
+			">>": "modules/card-slider/data.json",
+			"cards": [
+				{
+					"img": "assets/images/stasa.png",
+					"label": "Trening",
+					"title": "This is Title",
+					"date": "05.09.2022."
+				},
+				{
+					"img": "assets/images/stasa2.png",
+					"label": "Motivacija",
+					"title": "Mauris condimentum dui in sapien pellentesque",
+					"date": "05.09.2022."
+				},
+				{
+					"img": "assets/images/book.png",
+					"label": "Recepti",
+					"title": "Vivamus tempus lorem nec tincidunt consequat",
+					"date": "05.09.2022."
+				}
+			]
+		},
+		"sections": [
+			{
+				"moduleAlias":"landing-banner",
+				">>": "modules/landing-banner/data.json"
+			}
+		]
+	}
+}

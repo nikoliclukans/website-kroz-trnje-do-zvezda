@@ -1,0 +1,70 @@
+{
+	"template": "index",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+
+
+		"sections1": [
+			{
+				"moduleAlias":"banner",
+				">>": "modules/banner/data.json"
+			},
+			{
+				"moduleAlias":"basic-block",
+				">>": "modules/basic-block/data.json"
+			},
+			{
+				"moduleAlias":"banner",
+				">>": "modules/banner/data.json",
+				"title": "Banner title on the right",
+				"textPosition": "right"
+			},
+			{
+				"moduleAlias":"basic-block",
+				">>": "modules/basic-block/data.json",
+				"title": "Basic block beige background",
+				"background": "beige"
+			},
+			{
+				"moduleAlias":"banner",
+				">>": "modules/banner/data.json",
+				"title": "Banner title on the centar",
+				"textPosition": "centar"
+			},
+
+			{
+				"moduleAlias":"img-text",
+				">>": "modules/img-text/data.json",
+				"title": "Image text modul with left image position and beige background",
+				"image": "left",
+				"btn": "Pročitajte više",
+				"background": "beige"
+			},
+			{
+				"moduleAlias":"img-text",
+				">>": "modules/img-text/data.json",
+				"btn": "Pročitajte više"
+			},
+			{
+				"moduleAlias": "card-slider",
+				">>": "modules/card-slider/data.json"
+			},
+			{
+				"moduleAlias":"basic-block",
+				">>": "modules/basic-block/data.json",
+				"title": "Basic block purple background",
+				"background": "purple"
+			},
+			{
+				"moduleAlias": "form-box",
+				">>": "modules/form-box/data.json"
+			}
+		]
+	}
+}

@@ -1,0 +1,38 @@
+// ---------- breadcrumbs
+// ------------------------------------------------------------------------------
+
+.breadcrumbs {
+	padding: 20px 0 15px;
+	background: rgba($send, 0.6);
+	border-top: 6px solid $send;
+}
+.breadcrumbs-list {
+	display: flex;
+	align-items: center;
+}
+.breadcrumbs-item {
+	&.home {
+		a {
+			font-weight: 400;
+			color: $black;
+			text-transform: inherit;
+			pointer-events: all;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+		}
+		.icon {
+			font-size: 10px;
+			margin: 0 5px;
+		}
+	}
+	a {
+		font-size: 14px;
+		line-height: 15px;
+		font-weight: 700;
+		color: $purple;
+		text-transform: uppercase;
+		pointer-events: none;
+		cursor: not-allowed;
+	}
+}

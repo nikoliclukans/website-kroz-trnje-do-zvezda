@@ -1,0 +1,30 @@
+{
+	"logo": "assets/images/logo.png",
+	"menu": [
+
+		{
+			"link": "index.html",
+			"text": "Početna"
+		},
+		{
+			"link": "about.html",
+			"text": "O nama"
+		},
+		{
+			"link": "blog.html",
+			"text": "Blog"
+		},
+		{
+			"link": "stories.html",
+			"text": "Vaše priče"
+		},
+		{
+			"link": "shop.html",
+			"text": "Shop"
+		},
+		{
+			"link": "contact.html",
+			"text": "Kontakt"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+// ----------  slider
+// ------------------------------------------------------------------------------
+.card-slider {
+	padding: 80px 0;
+	background: $send;
+	text-align: center;
+	overflow: hidden;
+	.swiper-container {
+		overflow: visible;
+	}
+}

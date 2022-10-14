@@ -1,0 +1,25 @@
+.blog-article__details {
+	max-width: 980px;
+	margin: 80px auto 0;
+}
+.blog-article__title {
+	margin-bottom: 8px;
+}
+.blog-article__info {
+	border-bottom: 2px solid $grey;
+	padding-bottom: 8px;
+	font-size: 22px;
+	line-height: 24px;
+	color: rgba($black, 0.5);
+	display: flex;
+	width: 100%;
+	.bold {
+		font-weight: 700;
+		padding-left: 10px;
+	}
+}
+.blog-article__date {
+	padding-right: 10px;
+	margin-right: 7px;
+	border-right: 1px solid rgba($black, 0.5);
+}

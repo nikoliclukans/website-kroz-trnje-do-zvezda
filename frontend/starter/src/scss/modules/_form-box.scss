@@ -1,0 +1,45 @@
+// ---------- form-box
+// ------------------------------------------------------------------------------
+
+.form-box {
+	width: 100%;
+	background: $send;
+	overflow: hidden;
+}
+.form-box__wrap {
+	display: flex;
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -100%;
+		background: $white;
+		width: 100%;
+		height: 100%;
+	}
+	@include media-breakpoint-down(sm) {
+		flex-direction: column;
+		&::after {
+			display: none;
+		}
+	}
+}
+.form-box__text {
+	flex: 1 1 30%;
+	max-width: 30%;
+	padding: 80px 50px 80px 0;
+}
+.form-box__form {
+	flex: 1;
+	background: $white;
+	padding: 80px 0 80px 50px;
+}
+.form-box__field {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+	input {
+		width: 50%;
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"template": "about",
+	"bodyCssClass": "about",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "O nama"
+		},
+		"accordions": {
+			">>": "modules/accordions/data.json"
+		},
+		"sections": [
+			{
+				"moduleAlias":"img-text",
+				">>": "modules/img-text/data.json",
+				"background": "beige"
+			}
+		]
+	}
+}

@@ -1,0 +1,16 @@
+<div class="wrap">
+	<div class="search-view">
+		<h2 class="search-title centered">{{title}} "<span class="span--purple">{{searchString}}</span>":</h2>
+			{{#if searchResults}}
+				<ul class="search-list">
+					{{#each searchResults}}
+						<li class="search-item">
+							<a class="search-item-link">
+								<h2 class="h2">{{this.name}}</h2>
+								<p class="description">{{this.description}}</p>
+							</a></li>
+					{{/each}}
+				</ul>
+			{{/if}}
+	</div>
+</div>

@@ -1,0 +1,48 @@
+// ---------- accordions
+// ------------------------------------------------------------------------------
+
+.accordions {
+	width: 100%;
+	padding: 80px 0;
+	background: $send;
+	text-align: center;
+}
+
+.accordions-content {
+	display: none;
+	padding: 30px 30px 10px;
+	border-left: 2px solid $purple;
+}
+
+.accordions-list {
+	text-align: left;
+	max-width: 940px;
+	margin: 0 auto;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	overflow: hidden;
+}
+.accordions-item {
+	&:not(:first-of-type) {
+		.accordions-toogle {
+			border-top: 1px solid rgba($grey, 0.4);
+		}
+	}
+}
+.accordions-toogle {
+	padding: 22.5px 30px;
+	font-size: 22px;
+	line-height: 26px;
+	font-weight: 700;
+	background: $white;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	text-align: left;
+	.icon {
+		font-size: 16px;
+		font-weight: 400;
+		color: $purple;
+		margin-left: auto;
+	}
+}

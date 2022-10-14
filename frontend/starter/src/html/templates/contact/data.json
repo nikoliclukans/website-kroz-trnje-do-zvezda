@@ -1,0 +1,33 @@
+{
+	"template": "contact",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "Contact"
+		},
+		"sections": [
+			{
+				"moduleAlias":"img-text",
+				">>": "modules/img-text/data.json",
+				"image": "left"
+			},
+			{
+				"moduleAlias":"basic-block",
+				">>": "modules/basic-block/data.json",
+				"title": "Basic block purple background",
+				"background": "purple"
+			},
+			{
+				"moduleAlias": "form-box",
+				">>": "modules/form-box/data.json"
+			}
+		]
+	}
+}

@@ -1,0 +1,64 @@
+// ---------- search
+// ------------------------------------------------------------------------------
+
+.search {
+	width: 100%;
+	padding: 60px 0;
+}
+
+.search-wrap {
+	max-width: 600px;
+	width: 100%;
+	position: relative;
+	margin: 0 auto;
+
+	input {
+		width: 100%;
+	}
+
+	.icon {
+		position: absolute;
+		right: 20px;
+		top: calc((100% - 24px) / 2);
+		font-size: 24px;
+		color: $purple;
+	}
+}
+
+.search-view {
+	padding: 80px 0 50px;
+}
+
+.search-title {
+	font-size: 44px;
+	margin: 0 0 25px;
+	text-align: center;
+}
+
+.search-list {
+	padding: 35px 0 80px;
+	border-top: 2px solid $grey;
+	border-bottom: 2px solid $grey;
+}
+
+.search-item-link {
+	display: block;
+	background-color: rgba($send, 0.6);
+	padding: 25px;
+	margin-bottom: 30px;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: $send;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	}
+
+	h2 {
+		margin-bottom: 10px;
+	}
+
+	.description {
+		margin-bottom: 0;
+	}
+}

@@ -1,0 +1,25 @@
+<div class="card-slider">
+	<div class="wrap">
+		<h2 class="h2">{{title}}</h2>
+		<div class="swiper-container js-swiper card-slider__slider">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				{{#if cards}}
+					{{#each cards}}
+						<div class="swiper-slide card">
+							<img src="{{img}}" alt="slide1">
+							<span class="card-label">{{label}}</span>
+							<a class="card-content" href="/">
+								<h3 class="h3">{{title}}</h3>
+								<span class="card-date">{{date}}</span>
+							</a>
+						</div>
+					{{/each}}
+				{{/if}}
+			</div>
+			<div class="swiper-scrollbar"></div>
+    	</div>
+		</div>
+	</div>
+</div>

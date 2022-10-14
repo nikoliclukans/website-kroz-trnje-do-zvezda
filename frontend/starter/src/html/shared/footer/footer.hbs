@@ -1,0 +1,44 @@
+<footer class="footer">
+	<div class="wrap">
+		<div class="footer__content">
+			<img src="{{logo}}" alt="{{alt}}" class="footer-logo">
+			{{#if menu}}
+			<nav class="footer-nav">
+				<ul class="footer-nav__list" role="menubar">
+					{{#each menu}}
+					<li class="footer-nav__item" role="menuitem">
+						<a href="{{link}}" class="footer-nav__link">{{text}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</nav>
+			{{/if}}
+			<div class="footer-network">
+				<ul class="footer-network__icons">
+					<li>
+						<a href="https://www.instagram.com/cancer.influencer/?hl=en">
+							<span class="icon font-ico-insta">
+								<span class="sr-only">Instagram link</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span class="icon font-ico-facebook">
+								<span class="sr-only">Facebook link</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span class="icon font-ico-youtube">
+								<span class="sr-only">youtube link</span>
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<span class="footer-copy">{{copy}}</span>
+		</div>
+	</div>
+</footer>

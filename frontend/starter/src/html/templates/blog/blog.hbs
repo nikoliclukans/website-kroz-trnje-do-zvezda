@@ -1,0 +1,48 @@
+{{#> master this}}
+
+{{> header data.header}}
+{{> breadcrumbs data.breadcrumbs}}
+<div class="filters">
+	<div class="wrap">
+		<h2 class="h2">Filteri</h2>
+		<div class="filters-buttons">
+			<div class="select-wrap">
+				<select name="year" id="">
+					<option value="">Kategorija</option>
+					<option value="year1">Motivacija</option>
+					<option value="year2">Recepti</option>
+				</select>
+			</div>
+			<div class="select-wrap">
+				<select name="year" id="">
+					<option value="">Godina</option>
+					<option value="year1">2020</option>
+					<option value="year2">2021</option>
+				</select>
+			</div>
+			<button type="reset" class="filters-reset">Resetuj</button>
+		</div>
+	</div>
+</div>
+<div class="cards">
+	<div class="wrap">
+		<div class="cards-wrap">
+			{{#if cards}}
+		{{#each cards}}
+			<div class="card">
+				<img src="{{img}}" alt="slide1">
+				<span class="card-label">{{label}}</span>
+				<a class="card-content" href="blog-aticle.html">
+					<h3 class="h3">{{title}}</h3>
+					<span class="card-date">{{date}}</span>
+				</a>
+			</div>
+		{{/each}}
+	{{/if}}
+		</div>
+	</div>
+</div>
+
+{{> footer data.footer}}
+
+{{/master}}

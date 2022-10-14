@@ -1,0 +1,32 @@
+{
+	"copy": "Kroz trnje do zvezda © 2022.",
+	"logo": "assets/images/footer-logo.png",
+	"alt": "alt text",
+	"menu": [
+
+		{
+			"link": "index.html",
+			"text": "Početna"
+		},
+		{
+			"link": "about.html",
+			"text": "O nama"
+		},
+		{
+			"link": "blog.html",
+			"text": "Blog"
+		},
+		{
+			"link": "stories.html",
+			"text": "Vaše priče"
+		},
+		{
+			"link": "shop.html",
+			"text": "Shop"
+		},
+		{
+			"link": "contact.html",
+			"text": "Kontakt"
+		}
+	]
+}

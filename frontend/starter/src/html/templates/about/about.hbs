@@ -1,0 +1,89 @@
+{{#> master this}}
+	{{> header data.header}}
+	{{> breadcrumbs data.breadcrumbs}}
+	{{#each data.sections}}
+		{{> (lookup this 'moduleAlias') this}}
+	{{/each}}
+	<div class="wrap">
+		<div class="rte">
+			<h2>
+				Heading 2
+			</h2>
+			<p class="standfirst">
+				Integer vestibulum justo mauris, vitae varius odio pharetra vitae. Etiam euismod ultricies ultricies. Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis. Mauris id vehicula ipsum. Suspendisse laoreet urna vitae interdum pretium. Sed in justo a ex hendrerit cursus. Sed vel nisl augue. Praesent suscipit vehicula mollis.
+			</p>
+			<p>
+				Donec bibendum magna diam, et convallis turpis aliquet id. Maecenas volutpat arcu mauris, eget vulputate sapien iaculis ac. Praesent ac eros sit amet turpis vestibulum laoreet a vel neque. Morbi volutpat eu lorem dictum elementum. Nunc metus enim, dictum ac commodo quis, congue fermentum urna. Aenean ultricies lectus ac quam imperdiet malesuada.
+			</p>
+			<p>
+				Curabitur porta urna sit amet inline link nulla accumsan ullamcorper. Vestibulum diam enim, porta vel consectetur ut, euismod non turpis. Nam ac blandit nulla. Fusce massa dolor, gravida quis rutrum imperdiet, tincidunt at nulla. Quisque eu tellus efficitur, tristique enim ut, blandit dolor.
+			</p>
+			<h3>
+				Heading 3
+			</h3>
+			<p>
+				Etiam euismod ultricies ultricies. <a href="/">Vestibulum ultrices nunc</a> ac lectus laoreet, at congue nisi facilisis. Mauris id vehicula ipsum. Suspendisse laoreet urna vitae interdum pretium. Sed in justo a ex hendrerit cursus. Sed vel nisl augue. Praesent suscipit vehicula mollis. Duis in feugiat nisl, ac iaculis magna. Ut iaculis nunc eget mauris porta, ut mattis nunc porttitor. Nunc enim leo, suscipit sed porta in, pellentesque a turpis.
+			</p>
+			<ul>
+				<li>Vestibulum ultrices nunc ac lectus laoreet, <a href="/">at congue nisi facilisis</a>.</li>
+				<li>Mauris id vehicula ipsum.</li>
+				<li>VSuspendisse laoreet urna vitae interdum pretium.</li>
+			</ul>
+			<h4>
+				Heading 4
+			</h4>
+			<ol>
+				<li>Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis.</li>
+				<li>Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis.</li>
+				<li>Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis.</li>
+				<li>Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis.</li>
+				<li>Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis.</li>
+			</ol>
+			<h3>Heading 3</h3>
+			<img src="assets/images/rte-img.png" alt="alt">
+			<p>
+				Donec bibendum magna diam, et convallis turpis aliquet id. Maecenas volutpat arcu mauris, eget vulputate sapien iaculis ac. Praesent ac eros sit amet turpis vestibulum laoreet a vel neque. Morbi volutpat eu lorem dictum elementum. Nunc metus enim, dictum ac commodo quis, congue fermentum urna. Aenean ultricies lectus ac quam imperdiet malesuada.
+			</p>
+			<div class="table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<td>Table head</td>
+							<td>Table head</td>
+							<td>Table head</td>
+							<td>Table head</td>
+							<td>Table head</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+						</tr>
+						<tr>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+						</tr>
+						<tr>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+							<td>Table cell</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Heading 4</h4>
+			<p>Etiam euismod ultricies ultricies. Vestibulum ultrices nunc ac lectus laoreet, at congue nisi facilisis. Mauris id vehicula ipsum. Suspendisse laoreet urna vitae interdum pretium.</p>
+		</div>
+	</div>
+	{{> accordions data.accordions}}
+	{{> footer data.footer}}
+{{/master}}

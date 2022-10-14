@@ -1,0 +1,11 @@
+<div class="banner" style="background-image: url('assets/images/banner-landing.png');">
+	<div class="wrap">
+		<div class="banner__holder">
+			<div class="banner__content  {{#ifEquals textPosition "right"}} banner__content--right{{/ifEquals}}{{#ifEquals textPosition "centar"}} banner__content--centar{{/ifEquals}}">
+				<h1 class="h1 banner__title">{{title}}</h1>
+				<p class="text banner__text">{{text}}</p>
+				<a href="{{linkHref}}" class="btn banner-link" >{{linkText}} <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+			</div>
+		</div>
+	</div>
+</div>

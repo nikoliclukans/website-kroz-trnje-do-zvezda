@@ -1,0 +1,25 @@
+// ----------  basic-block
+// ------------------------------------------------------------------------------
+
+.basic-block {
+	background: $white;
+	padding: 80px 0;
+	&--beige {
+		background: $send;
+	}
+	&--purple {
+		background: $purple;
+		.basic-block__content {
+			color: $white;
+		}
+		.basic-block__btn {
+			border: 1px solid $white;
+		}
+	}
+}
+.basic-block__content {
+	text-align: center;
+	color: $black;
+	max-width: 940px;
+	margin: 0 auto;
+}

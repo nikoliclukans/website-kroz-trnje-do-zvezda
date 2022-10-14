@@ -1,0 +1,48 @@
+{
+	"template": "blog",
+	"data": {
+		">>": "shared/master/data.json",
+		"header": {
+			">>": "shared/header/data.json"
+		},
+		"footer": {
+			">>": "shared/footer/data.json"
+		},
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "Blog"
+		}
+	},
+	"cards": [
+		{
+			"img": "assets/images/stasa.png",
+			"label": "Trening",
+			"title": "This is Title",
+			"date": "05.09.2022."
+		},
+		{
+			"img": "assets/images/stasa2.png",
+			"label": "Motivacija",
+			"title": "Mauris condimentum dui in sapien pellentesque",
+			"date": "05.09.2022."
+		},
+		{
+			"img": "assets/images/book.png",
+			"label": "Recepti",
+			"title": "Vivamus tempus lorem nec tincidunt consequat",
+			"date": "05.09.2022."
+		},
+		{
+			"img": "assets/images/stasa2.png",
+			"label": "Recepti",
+			"title": "Maecenas augue nibh, auctor nec enim et",
+			"date": "05.09.2022."
+		},
+		{
+			"img": "assets/images/stasa2.png",
+			"label": "Recepti",
+			"title": "Vivamus tempus lorem nec tincidunt consequat",
+			"date": "05.09.2022."
+		}
+	]
+}

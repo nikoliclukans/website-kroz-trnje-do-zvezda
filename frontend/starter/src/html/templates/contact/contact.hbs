@@ -1,0 +1,11 @@
+{{#> master this}}
+
+{{> header data.header}}
+{{> breadcrumbs data.breadcrumbs}}
+{{#each data.sections}}
+	{{> (lookup this 'moduleAlias') this}}
+{{/each}}
+
+{{> footer data.footer}}
+
+{{/master}}

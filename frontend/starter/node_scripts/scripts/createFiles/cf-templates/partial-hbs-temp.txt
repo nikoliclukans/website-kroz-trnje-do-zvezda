@@ -1,0 +1,3 @@
+<div class="@{partial}">
+	<h2>{{title}} - @{partial}</h2>
+</div>

@@ -1,0 +1,16 @@
+<div class="img-text {{#ifEquals image "left"}} img-text--left{{/ifEquals}} {{#ifEquals background "beige"}} img-text--beige{{/ifEquals}}">
+	<div class="wrap">
+		<div class="img-text__wrap">
+			<div class="img-text__text">
+				<h2 class="h2">{{title}}</h2>
+				<p>{{text}}</p>
+				{{#if btn}}
+				<a href="javascript:;" class="btn">{{btn}} <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+				{{/if}}
+			</div>
+			<div class="img-text__img">
+				<img src="{{img}}" alt="{{altText}}">
+			</div>
+		</div>
+	</div>
+</div>

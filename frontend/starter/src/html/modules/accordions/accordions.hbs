@@ -1,0 +1,20 @@
+<div class="accordions">
+	<div class="wrap">
+		<h2 class="h2">{{title}}</h2>
+		<ul class="accordions-list">
+			{{#if accordion}}
+				{{#each accordion}}
+				<li class="accordions-item">
+				<button class="accordions-toogle js-acc-btn">
+					{{accTitle}}
+					<span class="icon font-ico-chevron-down"><span class="sr-only">accordion arrow</span></span>
+				</button>
+				<div class="accordions-content">
+					<p>{{accText}}</p>
+				</div>
+				</li>
+				{{/each}}
+			{{/if}}
+		</ul>
+	</div>
+</div>

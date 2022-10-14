@@ -1,0 +1,66 @@
+// ----------  button
+// ------------------------------------------------------------------------------
+
+button,
+input[type='button'],
+input[type='submit'] {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+}
+
+a,
+button {
+	appearance: none;
+	outline: none;
+
+	&:focus {
+		outline: 1px dashed rgba($orange, 0.2);
+	}
+}
+
+.btn {
+	background-color: $purple;
+	color: $white;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+	letter-spacing: 0.2%;
+	border-radius: 5px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	transition: 0.4s ease-out;
+	&.white {
+		color: $purple;
+		background-color: $white;
+		@include hover {
+			background-color: lighten($white, 30%);
+		}
+	}
+	&.outline-dark {
+		border: 1px solid $purple;
+		color: $purple;
+		background-color: transparent;
+	}
+	&.outline-white {
+		border: 1px solid $white;
+		color: $white;
+		background-color: transparent;
+		@include hover {
+			background-color: lighten($white, 30%);
+		}
+	}
+	.icon {
+		font-size: 13px;
+		margin-left: 7px;
+		position: relative;
+		top: 1px;
+	}
+	@include hover {
+		background-color: lighten($purple, 30%);
+		border-radius: 20px;
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"title": "Rezultati pretrage za",
+	"searchString": "Test",
+	"searchResults": [
+		{
+			"name": "Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi",
+			"description": "Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac."
+		},
+		{
+			"name": "Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi",
+			"description": "Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac."
+		},
+		{
+			"name": "Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi",
+			"description": "Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac."
+		}
+	]
+}

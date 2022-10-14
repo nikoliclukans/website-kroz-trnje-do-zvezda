@@ -1,0 +1,109 @@
+<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
+<script>
+	let optionalCookies = [
+		{
+			name: "analytics",
+			label: "Analytics cookies",
+			description: "Analytical cookies help us to improve our website by collecting and reporting information on its usage.",
+			cookies: ["_ga", "_gid", "_gat"],
+			onAccept: function () {
+				(function (w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != "dataLayer" ? "&l=" + l : "";
+					j.async = true;
+					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, "script", "dataLayer", "GTM-TVGRBHL");
+				if (typeof BrowseAloud != "undefined") {
+					BrowseAloud.analytics = BrowseAloud.org_analytics;
+				}
+			},
+			onRevoke: function () {
+				window["ga-disable-GTM-TVGRBHL"] = true;
+				if (typeof BrowseAloud != "undefined") {
+					BrowseAloud.analytics = BrowseAloud.no_analytics;
+				}
+			},
+		},
+		{
+			name: "marketing",
+			label: "Marketing (targeting or advertising) cookies",
+			description: "We use marketing (targeting or advertising) cookies to help us improve the relevancy of advertising campaigns you receive.",
+			cookies: [],
+			lawfulBasis: "consent",
+			onAccept: function () {},
+			onRevoke: function () {},
+			thirdPartyCookies: [{ name: "Ad personalization", optOutLink: "https://adssettings.google.com/authenticated?hl=en" }],
+		},
+	];
+	let brandingOptions = {
+		fontSizeTitle: "16px",
+		fontSizeIntro: "16px",
+		fontSizeHeaders: "16px",
+		fontSize: "16px",
+		alertBackground: "#cc4141",
+		alertText: "#fff",
+		removeAbout: true,
+		removeIcon: true
+	};
+	let onLoad = function () {
+		let cookieSettingsBtn = document.getElementsByClassName("ccc-notify-link")[0];
+		if (cookieSettingsBtn) {
+			cookieSettingsBtn.onclick = function () {
+				let panelInfo = document.getElementById("ccc-info");
+				let confirmButton = document.createElement("button");
+				confirmButton.classList.add("btn-info");
+				confirmButton.setAttribute("id", "confirm-btn");
+				confirmButton.innerText = "Confirm Settings";
+				panelInfo.appendChild(confirmButton);
+			};
+		}
+	};
+	var config = getConfigByWindowSize();
+	function getConfigByWindowSize() {
+		if (window.screen.width > 768) {
+			return {
+				apiKey: "fa2ccff0bfa8a43281efcaa76e77d077a745640d",
+				product: "PRO_MULTISITE",
+				initialState: "notify",
+				necessaryCookies: ["UMB-XSRF-TOKEN"],
+				position: "LEFT",
+				layout: "popup",
+				text: { settings: "Cookie settings" },
+				statement: { description: "For more detailed information about the cookies we use, see our", name: "cookie policy", url: "/cookie-policy/", updated: "01/12/2019" },
+				optionalCookies: optionalCookies,
+				branding: brandingOptions,
+				onLoad: onLoad,
+			};
+		} else {
+			return {
+				apiKey: "fa2ccff0bfa8a43281efcaa76e77d077a745640d",
+				product: "PRO_MULTISITE",
+				initialState: "notify",
+				necessaryCookies: ["UMB-XSRF-TOKEN"],
+				position: "RIGHT",
+				layout: "popup",
+				text: { settings: "Cookie settings" },
+				statement: { description: "For more detailed information about the cookies we use, see our", name: "cookie policy", url: "/cookie-policy/", updated: "01/12/2019" },
+				optionalCookies: optionalCookies,
+				branding: brandingOptions,
+			};
+		}
+	}
+	CookieControl.load(config);
+
+</script>
+<!-- http://PROJECTNAME.emperordev.com/ -->
+<!-- globalVars -> cookieCivic = true -->
+<!-- for cookie trigger add class on link 'js-cookie-opener' -->
+<!-- <a class="js-cookie-opener" href="javascript:;">Cookie settings</a> -->
+
+<!-- var config = {
+apiKey: 'fa2ccff0bfa8a43281efcaa76e77d077a745640d',
+product: 'PRO_MULTISITE',
+};
+
+CookieControl.load( config ); -->

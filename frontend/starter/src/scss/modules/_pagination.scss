@@ -1,0 +1,83 @@
+// ---------- pagination
+// ------------------------------------------------------------------------------
+
+.pagination {
+	width: 100%;
+	padding: 50px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pagination-list {
+	display: flex;
+	align-items: center;
+
+	li {
+		display: flex;
+		margin-right: 10px;
+	}
+}
+
+.pagination-button {
+	padding: 10px 15px;
+	border: 1px solid $purple;
+	font-size: 16px;
+	line-height: 17px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover,
+	.active {
+		background-color: $purple;
+		color: $white;
+	}
+}
+
+.previous,
+.next {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $black;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	pointer-events: auto;
+
+	&:hover {
+		color: $purple;
+	}
+
+	i {
+		font-size: 14px;
+	}
+
+	&.disabled {
+		color: $grey;
+		pointer-events: none;
+	}
+}
+
+.previous {
+	margin-right: 30px;
+
+	i {
+		margin-right: 3px;
+	}
+}
+
+
+.next {
+	margin-left: 30px;
+
+	i {
+		margin-left: 3px;
+	}
+}
