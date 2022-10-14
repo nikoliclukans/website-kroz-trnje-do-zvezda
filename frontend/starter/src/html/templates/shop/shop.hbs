@@ -44,8 +44,9 @@
 								</div>
 								<div class="shop-card__popup-text">
 									<h3 class="h3">{{title}}</h3>
-									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
-									<p class="shop-card__paragraph">Preko 140 recepata i ideja za 30 dana zdravih, izbalansiranih i ukusnih obroka! Doručak, ručak, večera, hleb i slane grickalice, smutiji, slatkiši, supe, čorbe, umaci i namazi, domaći sirupi, čajevi...</p>
+									{{#each textSlide}}
+									<p class="shop-card__paragraph">{{text}}</p>
+									{{/each}}
 								</div>
 							</div>
 						</div>
@@ -57,6 +58,7 @@
 			</div>
 		</div>
 	</div>
+{{> order-form data.order-form}}
 {{> pagination data.pagination}}
 {{> footer data.footer}}
 

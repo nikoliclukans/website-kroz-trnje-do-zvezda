@@ -26,10 +26,12 @@
         <div class="filters-buttons">
             <div class="select-wrap">
                 <select name="category" id="category" onchange="location = this.value;">
+                    <option value="" disabled selected>Kategorija</option>
+
                     @foreach (var category in Model.CategoriesContainer?.Children<PerAspera.Models.Generated.Category>() ?? Enumerable.Empty<PerAspera.Models.Generated.Category>())
                     {
                         @if (Model.IsSelectedCategory(category.Id))
-                        {
+                        { 
                             <option value="@($"{Model.Url()}?category={category.Id}&year={Model.CurrentYear}")" selected>@category.CategoryName</option>
                         }
                         else
@@ -76,13 +78,13 @@
         </div>
     </div>
     <div class="pagination">
-        <a class="previous @(!Model.BlogList.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.BlogList.CurrentPage) - 1) + $"?category={Model.CurrentCategory}&year={Model.CurrentYear}")><i class="font-ico-chevron-left"></i>Prethodna</a>
+        <a class="previous @(!Model.BlogList.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.BlogList.CurrentPage) - 1))"><i class="font-ico-chevron-left"></i>Prethodna</a>
         <ul class="pagination-list">
             @foreach (var item in Enumerable.Range(1, Convert.ToInt32(Model.BlogList.TotalPageNumber)))
             {
-                <li><a class="pagination-button active" href="@Model.GetPaginatedUrl(item)">@item</a></li>
+                <li><a class="pagination-button @(Model.BlogList.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
             }
         </ul>
-        <a class="next @(!Model.BlogList.HasNext ? "disabled" : string.Empty) href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.BlogList.CurrentPage) + 1) + $"?category={Model.CurrentCategory}&year={Model.CurrentYear}")">Sledeća<i class="font-ico-chevron-right"></i></a>
+        <a class="next @(!Model.BlogList.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.BlogList.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
     </div>
 </div>

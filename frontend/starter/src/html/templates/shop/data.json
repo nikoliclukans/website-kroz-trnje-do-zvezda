@@ -11,6 +11,9 @@
 		"breadcrumbs": {
 			">>": "modules/breadcrumbs/data.json",
 			"page": "Shop"
+		},
+		"order-form": {
+			">>": "modules/order-form/data.json"
 		}
 	},
 
@@ -19,6 +22,17 @@
 			"title": "Imunomania",
 			"label": "Knjiga",
 			"text": "Napravi nove navike uz novu ishranu",
+			"textSlide": [
+				{
+					"text":"Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive."
+				},
+				{
+					"text":"Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive."
+				},
+				{
+					"text":"Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive."
+				}
+			],
 			"slide": [
 				{
 					"img": "assets/images/book.png"
@@ -35,6 +49,17 @@
 			"title": "Imunomania",
 			"label": "Knjiga",
 			"text": "Napravi nove navike uz novu ishranu",
+			"textSlide": [
+				{
+					"text":"Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive."
+				},
+				{
+					"text":"Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive."
+				},
+				{
+					"text":"Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive."
+				}
+			],
 			"slide": [
 				{
 					"img": "assets/images/book.png"
