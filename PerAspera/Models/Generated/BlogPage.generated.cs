@@ -81,6 +81,45 @@ namespace PerAspera.Models.Generated
 		public virtual bool DisplayInNavigation => global::PerAspera.Models.Generated.PageBase.GetDisplayInNavigation(this, _publishedValueFallback);
 
 		///<summary>
+		/// Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("image")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => global::PerAspera.Models.Generated.PageBase.GetImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO Canonical Link
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("sEOCanonicalLink")]
+		public virtual string SEocanonicalLink => global::PerAspera.Models.Generated.PageBase.GetSEocanonicalLink(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("sEODescription")]
+		public virtual string SEodescription => global::PerAspera.Models.Generated.PageBase.GetSEodescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO Hide From Search Engine
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[ImplementPropertyType("sEOHideFromSearchEngine")]
+		public virtual bool SEohideFromSearchEngine => global::PerAspera.Models.Generated.PageBase.GetSEohideFromSearchEngine(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("sEOKeywords")]
+		public virtual string SEokeywords => global::PerAspera.Models.Generated.PageBase.GetSEokeywords(this, _publishedValueFallback);
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
