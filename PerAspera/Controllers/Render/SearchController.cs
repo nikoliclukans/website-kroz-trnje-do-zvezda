@@ -27,7 +27,8 @@ namespace PerAspera.Controllers.Render
             var query = this.HttpContext.Request.Query;
             var search = query.GetStringParameter("query");
             var searchTermResult = SearchTerm.Create(search);
-
+            var page = this.CurrentPage as Search;
+            page.Query = search;
             if (searchTermResult.IsSuccess)
             {
                 var searchQuery = new SearchQuery(searchTermResult.Value, _siteSearch.Configuration.SearchFields);
@@ -35,10 +36,11 @@ namespace PerAspera.Controllers.Render
                 const int itemsPerPage = 10;
                 var paginationRequestResult = PaginationRequest.Create(pageNumber, itemsPerPage);
                 var result = _siteSearch.Search(searchQuery, searchTermResult.Value, paginationRequestResult);
-            }
+                page.SearchItems = new PaginatedCollectionViewModel<SearchResultsItemViewModel>(result.Value.Items,
+                    (uint)result.Value.TotalResults, 10, pageNumber);
+            }           
 
 
-            var page = this.CurrentPage as Search;
 
             return CurrentTemplate(page);
         }
