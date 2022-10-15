@@ -28,9 +28,7 @@
 	<!-- main css file -->
 	<link rel="stylesheet" href="~/css/style.min.css?v=123">
 	<!-- global js file -->
-	<script defer src="~/js/global.min.js?v=123"></script>
 	<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
-	<script src="~/js/global.min.js"></script>
 	<script>
 		let optionalCookies = [{
 			name: "analytics",
@@ -164,6 +162,8 @@
 	@RenderBody()
 
 	@Html.Partial("_Footer", new PerAspera.Models.ViewModels.FooterViewModel(Model))
+
+	<script src="~/js/global.min.js"></script>
 
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>

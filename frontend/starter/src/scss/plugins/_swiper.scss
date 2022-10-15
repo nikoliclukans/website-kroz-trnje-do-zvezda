@@ -71,17 +71,17 @@ $swiper-navigation-size: 44px;
 
 .swiper-button-prev,
 .swiper-button-next {
-	position: absolute;
-	top: 50%;
-	width: calc(#{math.div($swiper-navigation-size, 44)} * 27);
-	height: $swiper-navigation-size;
-	margin-top: calc(0px - #{math.div($swiper-navigation-size, 2)});
 	z-index: 10;
+	position: absolute;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: $black;
+	color: $purple;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 1px solid $purple;
 }
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
@@ -92,11 +92,9 @@ $swiper-navigation-size: 44px;
 
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
+	transform: rotate(180deg);
 	left: 10px;
 	right: auto;
-	.font-ico-chevron-down {
-		transform: rotate(90deg);
-	}
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
@@ -236,3 +234,11 @@ button.swiper-pagination-bullet {
 	background: $purple;
 }
 
+.swiper-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	height: 42px;
+	margin-top: 12px;
+}

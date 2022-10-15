@@ -1,0 +1,28 @@
+﻿@model PerAspera.Models.ViewModels.YourStoryFormDto
+
+<form 
+    asp-action="YourStory" asp-controller="YourStoryForm" asp-action="POST" class="order-form__form"
+    asp-antiforgery="true" data-ajax="true" data-ajax-method="POST"
+    data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+    data-ajax-success="OnSuccess" data-ajax-complete="OnComplete"
+    >
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="name">Ime*</label>
+							<input asp-for="Name">
+							<span asp-validation-for="Name"></span>
+						</div>
+						<div class="form-box__field">
+							<label for="email">Email adresa*</label>
+							<input asp-for="Email">
+							<span asp-validation-for="Email"></span>
+						</div>
+					</div>
+					<div class="form-box__field">
+						<label for="msg">Poruka*</label>
+						<textarea asp-for="Message" cols="30" rows="7"></textarea>
+						<span asp-validation-for="Message"></span>
+					</div>
+					<span class="form-text">* Obavezna polja</span>
+					<button type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+</form>
