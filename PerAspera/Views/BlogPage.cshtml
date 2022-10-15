@@ -1,6 +1,30 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using PerAspera.Models.Generated;
+@using PerAspera.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.BlogPage>
 @using ContentModels = PerAspera.Models.Generated;
 @{
     Layout = "_Layout";
+}
+@Html.Partial("_Breadcrumbs", new PerAspera.Models.ViewModels.BreadCrumbsViewModel(Model))
+
+@if(Model.BannerImage != null)
+{
+	<div class="landing-banner" style="background-image: url('@Model.BannerImage.Url()');"></div>
+
+}
+	<div class="blog-article__details">
+		<div class="wrap">
+			<h2 class="h1 blog-article__title">@Model.Title</h2>
+			<div class="blog-article__info">
+				<span class="blog-article__date"> Datum: <span class="bold">@Model.CreateDate.ToString("dd.MM.yyyyy")</span>
+				</span>
+				<span class="blog-article__author"> Autor: <span class="bold">@Model.Author</span>
+				</span>
+			</div>
+		</div>
+	</div>
+
+@foreach (var item in Model.Content ?? Enumerable.Empty<PublishedElementModel>())
+{
+	@await Html.NestedContent(item, ViewData)
 }
