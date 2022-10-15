@@ -7,6 +7,8 @@
     Layout = "_Layout";
 }
 
+@Html.Partial("_Breadcrumbs", new PerAspera.Models.ViewModels.BreadCrumbsViewModel(Model))
+
 @foreach (var item in Model.Content ?? Enumerable.Empty<PublishedElementModel>())
 {
     @await Html.NestedContent(item, ViewData)

@@ -2,6 +2,7 @@
 const modalHandler = {
 	init: function() {
 		this.openAccordions();
+		this.scroll();
 	},
 
 	openAccordions: function() {
@@ -24,6 +25,15 @@ const modalHandler = {
 		$('.js-modal-close').on('click', () => {
 			$('.js-shop-modal-overlay').removeClass('open');
 			$('.js-modal-overlay').removeClass('modal-overlay--opened');
+		});
+	},
+	scroll: function() {
+
+		$('.js-order').on('click', () => {
+			$('html,body').animate({
+				scrollTop: $('.order-form').offset().top },
+			'slow');
+			$('.js-shop-modal-overlay').removeClass('open');
 		});
 	}
 };
