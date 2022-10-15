@@ -15,37 +15,40 @@
 	</div>
 	<div class="wrap">
 		<div class="search-view">
-			<h2 class="search-title centered">Rezultati pretrage za "<span class="span--purple">Test</span>":</h2>
+			@if(!string.IsNullOrEmpty(Model.Query)){
+
+				<h2 class="search-title centered">Rezultati pretrage za "<span class="span--purple">@Model.Query</span>":</h2>
+			}
+			@if(Model.SearchItems != null)
+			{
 			<ul class="search-list">
-				<li class="search-item">
-					<a class="search-item-link">
-						<h2 class="h2">Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi</h2>
-						<p class="description">Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac.</p>
-					</a>
-				</li>
-				<li class="search-item">
-					<a class="search-item-link">
-						<h2 class="h2">Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi</h2>
-						<p class="description">Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac.</p>
-					</a>
-				</li>
-				<li class="search-item">
-					<a class="search-item-link">
-						<h2 class="h2">Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi</h2>
-						<p class="description">Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac.</p>
-					</a>
-				</li>
+				@foreach (var item in Model.SearchItems.Collection)
+				{
+
+					<li class="search-item">
+						<a class="search-item-link" href="@item.Url">
+							<h2 class="h2">@item.Title</h2>
+							<p class="description">@item.Text</p>
+						</a>
+					</li>
+				}
 			</ul>
+			}
 		</div>
 	</div>
-	<div class="wrap">
-		<div class="pagination">
-			<button class="previous disabled" type="button"><i class="font-ico-chevron-left"></i>Prethodna</button>
+<div class="wrap">
+	<div class="pagination">
+		@if (Model.SearchItems != null)
+		{
+			<a class="previous disabled" href=""><i class="font-ico-chevron-left"></i>Prethodna</a>
+			<a class="previous @(!Model.SearchItems.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.SearchItems.CurrentPage) - 1))"><i class="font-ico-chevron-left"></i>Prethodna</a>
 			<ul class="pagination-list">
-				<li><a class="pagination-button active" href="#">1</a></li>
-				<li><a class="pagination-button" href="#">2</a></li>
-				<li><a class="pagination-button" href="#">3</a></li>
+				@foreach (var item in Enumerable.Range(1, Convert.ToInt32(Model.SearchItems.TotalPageNumber)))
+				{
+					<li><a class="pagination-button @(Model.SearchItems.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
+				}
 			</ul>
-			<button class="next" type="button">Sledeća<i class="font-ico-chevron-right"></i></button>
-		</div>
+			<a class="next @(!Model.SearchItems.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.SearchItems.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
+		}
 	</div>
+</div>
