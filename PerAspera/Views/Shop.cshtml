@@ -4,3 +4,6 @@
 @{
     Layout = "_Layout";
 }
+
+@Html.Partial("Forms/ShopOrderForm", new PerAspera.Models.ViewModels.ShopOrderDto(),
+                        new ViewDataDictionary(this.ViewData) { { "Products", Model.GetProducts() } })
