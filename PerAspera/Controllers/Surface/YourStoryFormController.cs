@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PerAspera.Extensions;
+using PerAspera.Infrastructure.Configuration;
 using PerAspera.Infrastructure.Implementation;
 using PerAspera.Infrastructure.Interfaces;
 using PerAspera.Models.Generated;
@@ -17,15 +18,15 @@ namespace PerAspera.Controllers.Surface
     public class YourStoryFormController : SurfaceController
     {
         private readonly IEmailService _emailService;
-        private readonly IConfiguration _configuration;
+		private readonly SmtpConfiguration _smtpConfiguration;
 
-        public YourStoryFormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory,
+		public YourStoryFormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory,
             ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, 
-            IPublishedUrlProvider publishedUrlProvider, IEmailService emailService, IConfiguration configuration) 
+            IPublishedUrlProvider publishedUrlProvider, IEmailService emailService, SmtpConfiguration smtpConfiguration) 
             : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider) 
         {
-            if (configuration == null) throw new ArgumentNullException(nameof(configuration));
-            _configuration = configuration;
+            if (smtpConfiguration == null) throw new ArgumentNullException(nameof(smtpConfiguration));
+			_smtpConfiguration = smtpConfiguration;
             if (emailService == null) throw new ArgumentNullException(nameof(emailService));
             _emailService = emailService;
 
@@ -40,15 +41,12 @@ namespace PerAspera.Controllers.Surface
                 return BadRequest();
             }
 
-            var from = _configuration.GetValue<string>("Umbraco:CMS:Global:Smtp:From");
-            var to = _configuration.GetValue<string>("Umbraco:CMS:Global:Smtp:To");
-
             var message = @$"
                 Ime: {model.Name}
                 Email: {model.Email} 
                 Moja prica: {model.Message}";
 
-            _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(from, to, "Moja prica", message, false), new ContactUsEmailTemplate(message));
+            _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To, "Moja prica", message, false), new ContactUsEmailTemplate(message));
 
             return Ok();
         }
