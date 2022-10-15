@@ -21,7 +21,7 @@ namespace PerAspera.Controllers.Render
 			var category = query.GetUintParameter("category");
 			var year = query.GetUintParameter("year");
 			var currentPage = query.GetUintParameter("page") ?? 1;
-			var maxItemPerPage = 6;
+			var maxItemPerPage = 9;
             var page = this.CurrentPage as Blogs;
 			var blogsQuery = this.CurrentPage.Children<BlogPage>();
 			if(category != null)
@@ -36,7 +36,7 @@ namespace PerAspera.Controllers.Render
 			page.CurrentCategory =category;
 			page.CurrentYear = year;
 			page.BlogList = new PaginatedCollectionViewModel<BlogPage>(blogsQuery.Skip((Convert.ToInt32(currentPage) - 1) * maxItemPerPage).Take(maxItemPerPage),
-				(uint)this.CurrentPage.Children<BlogPage>().Count(),(uint)maxItemPerPage, currentPage);
+				(uint)blogsQuery.Count(),(uint)maxItemPerPage, currentPage);
 
 
             return CurrentTemplate(page);

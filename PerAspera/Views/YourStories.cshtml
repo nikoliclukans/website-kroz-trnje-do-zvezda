@@ -2,5 +2,84 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.YourStories>
 @using ContentModels = PerAspera.Models.Generated;
 @{
-	Layout = null;
+    Layout = "_Layout";
 }
+
+<div class="breadcrumbs">
+    <div class="wrap">
+        <ul class="breadcrumbs-list">
+            <li class="breadcrumbs-item home">
+                <a href="/" class="breadcrumbs-link">
+                    Početna <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
+                </a>
+            </li>
+            <li class="breadcrumbs-item">
+                <a href="javascript:;" class="breadcrumbs-link">vase price</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="order-form">
+    <div class="wrap">
+        <div class="order-form__content">
+            <h3 class="h3">Pošaljite nam svoju priču</h3>
+            <p>Aliquam vestibulum eleifend ipsum sed finibus. Praesent mattis id tellus quis ultrices. Donec eget nulla ut nisi consectetur bibendum in eget magna. Donec consectetur accumsan nulla, quis lobortis erat. Integer sed accumsan eros. Morbi vel justo imperdiet, dapibus nisi quis, vestibulum tortor. Duis eget dui metus. Sed eget lacus consectetur, porta tellus ut, placerat urna.</p>
+            <form action="" class="order-form__form">
+                <div class="form-row">
+                    <div class="form-box__field">
+                        <label for="name">Ime*</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="form-box__field">
+                        <label for="name">Email adresa*</label>
+                        <input type="email" id="email">
+                    </div>
+                </div>
+                <div class="form-box__field">
+                    <label for="name">Poruka*</label>
+                    <textarea name="" id="msg" cols="30" rows="7"></textarea>
+                </div>
+                <span class="form-text">* Obavezna polja</span>
+                <button type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="comments">
+    <div class="wrap">
+        <div class="comments-wrap">
+
+            @foreach (var item in Model.Stories.Collection)
+            {
+                <div class="comment">
+                    <h3 class="h3 comment-heading">@item.StoryBy:</h3>
+                    <p class="comment-description">@item.Text</p>
+                    <button class="comment-read-more js-modal-open">Pročitaj celu priču<i class="font-ico-chevron-right"></i></button>
+                </div>
+            }
+        </div>
+
+        <div class="pagination">
+            <a class="previous @(!Model.Stories.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.Stories.CurrentPage) - 1))"><i class="font-ico-chevron-left"></i>Prethodna</a>
+            <ul class="pagination-list">
+                @foreach (var item in Enumerable.Range(1, Convert.ToInt32(Model.Stories.TotalPageNumber)))
+                {
+                    <li><a class="pagination-button @(Model.Stories.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
+                }
+            </ul>
+            <a class="next @(!Model.Stories.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.Stories.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
+        </div>
+    </div>
+</div>
+<div class="modal-overlay js-modal-overlay">
+    <div class="modal">
+        <div class="modal-content">Something3</div>
+        <a class="modal-close-btn js-modal-close"><i class="font-ico-close-x"></i></a>
+    </div>
+</div>
+<div class="modal-overlay js-modal-overlay">
+    <div class="modal">
+        <div class="modal-content">Something3</div>
+        <a class="modal-close-btn js-modal-close"><i class="font-ico-close-x"></i></a>
+    </div>
+</div>

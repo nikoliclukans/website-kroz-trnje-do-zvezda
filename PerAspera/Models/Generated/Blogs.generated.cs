@@ -58,6 +58,13 @@ namespace PerAspera.Models.Generated
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent CategoriesContainer => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "categoriesContainer");
 
 		///<summary>
+		/// Display In Navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[ImplementPropertyType("displayInNavigation")]
+		public virtual bool DisplayInNavigation => global::PerAspera.Models.Generated.PageBase.GetDisplayInNavigation(this, _publishedValueFallback);
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]

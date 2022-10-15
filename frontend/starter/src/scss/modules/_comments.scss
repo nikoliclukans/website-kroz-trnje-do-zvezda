@@ -18,7 +18,7 @@
 	width: 100%;
 	margin-right: 30px;
 	margin-bottom: 30px;
-
+	cursor: pointer;
 	&:nth-child(3n) {
 		margin-right: 0;
 	}
@@ -27,6 +27,11 @@
 .comment-heading {
 	background-color: $send;
 	padding: 20px;
+	.font-ico-quote {
+		color: $green;
+		font-size: 22px;
+		margin-right: 10px;
+	}
 }
 
 .comment-description {

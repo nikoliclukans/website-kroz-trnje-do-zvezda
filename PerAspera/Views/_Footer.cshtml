@@ -1,27 +1,18 @@
-﻿<footer class="footer">
+﻿@model PerAspera.Models.ViewModels.FooterViewModel
+
+<footer class="footer">
 	<div class="wrap">
 		<div class="footer__content">
-			<img src="assets/images/footer-logo.png" alt="alt text" class="footer-logo">
+			<img src="@Model.LogoUrl" alt="" class="footer-logo">
 			<nav class="footer-nav">
 				<ul class="footer-nav__list" role="menubar">
-					<li class="footer-nav__item" role="menuitem">
-						<a href="index.html" class="footer-nav__link">Početna</a>
-					</li>
-					<li class="footer-nav__item" role="menuitem">
-						<a href="about.html" class="footer-nav__link">O nama</a>
-					</li>
-					<li class="footer-nav__item" role="menuitem">
-						<a href="blog.html" class="footer-nav__link">Blog</a>
-					</li>
-					<li class="footer-nav__item" role="menuitem">
-						<a href="stories.html" class="footer-nav__link">Vaše priče</a>
-					</li>
-					<li class="footer-nav__item" role="menuitem">
-						<a href="shop.html" class="footer-nav__link">Shop</a>
-					</li>
-					<li class="footer-nav__item" role="menuitem">
-						<a href="contact.html" class="footer-nav__link">Kontakt</a>
-					</li>
+					@foreach(var page in Model.Pages)
+					{
+						<li class="footer-nav__item" role="menuitem">
+						<a href="@(page.Url())" class="footer-nav__link">@(page.Title)</a>
+						</li>
+					}
+					
 				</ul>
 			</nav>
 			<div class="footer-network">
