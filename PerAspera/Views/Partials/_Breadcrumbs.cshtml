@@ -1,0 +1,25 @@
+﻿@model PerAspera.Models.ViewModels.BreadCrumbsViewModel
+
+<div class="breadcrumbs">
+	<div class="wrap">
+		<ul class="breadcrumbs-list">
+			<li class="breadcrumbs-item home">
+				<a href="/" class="breadcrumbs-link">
+					Početna <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
+				</a>
+			</li>
+			@foreach(var item in Model.GetBreadCrumbs())
+			{
+				<li class="breadcrumbs-item home">
+					<a href="/" class="breadcrumbs-link">
+							@item <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
+					</a>
+				</li>
+			}
+
+			<li class="breadcrumbs-item">
+				<a href="javascript:;" class="breadcrumbs-link">@Model.Page.Title</a>
+			</li>
+		</ul>
+	</div>
+</div>
