@@ -2,6 +2,8 @@
 {
 	public partial class LatestBlogs
 	{
+		public const int defaultNumberOfSlides = 4;
+		
 		public IEnumerable<BlogPage> GetLatestBlogs(int maxNumberOfBlogs)
 		{
 			List<BlogPage> blogPages = Blogs?.Children<BlogPage>().ToList() ?? new List<BlogPage>();
