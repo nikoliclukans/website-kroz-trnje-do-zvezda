@@ -21,45 +21,51 @@
 	<div class="shop-cards">
 		<div class="wrap">
 			<div class="shop-cards__wrap">
+
 				@foreach(var shopItem in Model.ShopItemList.Collection){
 				<div class="shop-card">
 					<div class="shop-card__img">
 						<img src="@(shopItem.Image?.Url() ?? string.Empty)" alt="">
-						<span class="card-label">Knjiga</span>
+						<span class="card-label">@(shopItem.Category?.Name ?? string.Empty)</span>
 					</div>
+
 					<div class="shop-card__content">
 						<h3 class="h3"> @shopItem.Name </h3>
 						<p class="shop-card__text">@shopItem.Description</p>
-						<span class="shop-card__price">@shopItem.Price</span>
-						<button class="shop-card__more js-modal-open">saznaj više</button>
-						<div class="shop-card__popup js-modal-overlay">
+						<span class="shop-card__price">@shopItem.Price rsd</span>
+						<button class="shop-card__more js-shop-modal-open">saznaj vise</button>
+						<div class="shop-card__popup js-shop-modal-overlay">
 							<div class="shop-card__popup-wrap">
-								<button class="js-popup-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+								<button class="js-modal-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
 								<div class="shop-card__slider">
 									<div class="swiper-container js-shop-slider">
 										<div class="swiper-wrapper">
-											<div class="swiper-slide shop-slide">
-												<img src="@(shopItem.Image?.Url() ?? string.Empty)" alt="slide1">
-											</div>
+											@foreach (var image in shopItem.ImageList)
+											{
+												<div class="swiper-slide shop-slide">
+													<img src="@(image.Url() ?? string.Empty)" alt="slide1">
+												</div>
+											}
+										
+											
 										</div>
 										<div class="swiper-buttons">
-											<div class="swiper-button-next"></div>
+											<div class="swiper-button-next"><span class="icon font-ico-chevron-right"><span class="sr-only">Icon next</span></span></div>
 											<div class="swiper-pagination"></div>
-											<div class="swiper-button-prev"></div>
+											<div class="swiper-button-prev"><span class="icon font-ico-chevron-right"><span class="sr-only">Icon prev</span></span></div>
 										</div>
 										<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
 									</div>
 								</div>
 								<div class="shop-card__popup-text">
-									<h3 class="h3">@shopItem.Name</h3>
-									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
-									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
-									<p class="shop-card__paragraph">Knjiga koja je nastala na vaš zahtev.Knjiga koja menja loše navike u ishrani. Izbacićete šećer, belo brašno, kvasac i aditive.</p>
+									<h3 class="h3"> @shopItem.Name </h3>
+									<p class="shop-card__paragraph">@shopItem.ShopDetailsText</p>
 								</div>
 							</div>
 						</div>
 						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
 					</div>
+				
 				</div>
 				}
 			</div>
@@ -71,7 +77,7 @@
 			<ul class="pagination-list">
 				@foreach(var item in Enumerable.Range(1, Convert.ToInt32(Model.ShopItemList.TotalPageNumber)))
 				{
-				<li><a class="pagination-button @(Model.ShopItemList.CurrentPage == item ? "active" : string.Empty)" href="#">1</a></li>
+				<li><a class="pagination-button @(Model.ShopItemList.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
 				}
 			</ul>
 			<a class="next @(!Model.ShopItemList.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.ShopItemList.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
