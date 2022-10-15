@@ -173,6 +173,13 @@
                 var query = $('#header-search-input').val();
                 window.location.href = "/search?query=" + query;
             });
+
+            $(".header-search__input, .search__input").on('keypress', function (e) {
+                if (e.which == 13) {
+                    var query = $(this).val();
+                    window.location.href = "/search?query=" + query;
+                }
+            });
         });
     </script>
 </body>
