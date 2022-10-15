@@ -5,15 +5,17 @@ const modalHandler = {
 	},
 
 	openAccordions: function() {
-		$('.js-modal-open').click(function(e) {
-			e.preventDefault();
+		$('.js-modal-open').on('click', function() {
 			const $this = $(this);
-			if ($this.next().hasClass('show')) {
-				$this.next().removeClass('show');
-			} else {
-				$this.parent().parent().find('.js-modal-overlay').removeClass('show');
-				$this.next().toggleClass('show');
-			}
+			const thisIndex = $this.index();
+			const slide = $('.js-modal-overlay');
+			$('.js-modal-open').removeClass('active');
+			$this.addClass('active');
+			slide.eq(thisIndex).addClass('modal-overlay--opened');
+		});
+		$('.js-modal-close').on('click', () => {
+
+			$('.js-modal-overlay').removeClass('modal-overlay--opened');
 		});
 	}
 };
