@@ -82,6 +82,14 @@ namespace PerAspera.Models.Generated
 		public virtual string Signature => this.Value<string>(_publishedValueFallback, "signature");
 
 		///<summary>
+		/// Social Media
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("socialMedia")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::PerAspera.Models.Generated.SocialMediaItem> SocialMedia => this.Value<global::System.Collections.Generic.IEnumerable<global::PerAspera.Models.Generated.SocialMediaItem>>(_publishedValueFallback, "socialMedia");
+
+		///<summary>
 		/// Display In Navigation
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]

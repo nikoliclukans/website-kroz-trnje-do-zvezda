@@ -3,7 +3,7 @@
 <footer class="footer">
 	<div class="wrap">
 		<div class="footer__content">
-			<img src="@Model.LogoUrl" alt="" class="footer-logo">
+			<img src="@Model.LogoUrl()" alt="" class="footer-logo">
 			<nav class="footer-nav">
 				<ul class="footer-nav__list" role="menubar">
 					@foreach(var page in Model.Pages)
@@ -17,30 +17,15 @@
 			</nav>
 			<div class="footer-network">
 				<ul class="footer-network__icons">
-					<li>
-						<a href="https://www.instagram.com/cancer.influencer/?hl=en">
-							<span class="icon font-ico-insta">
-								<span class="sr-only">Instagram link</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span class="icon font-ico-facebook">
-								<span class="sr-only">Facebook link</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-							<span class="icon font-ico-youtube">
-								<span class="sr-only">youtube link</span>
-							</span>
-						</a>
-					</li>
+					@foreach(var item in Model.GetSocialMediaItems()){
+						<li>
+							<a href="@(item.SocialMediaLink.Url)" target="@item.SocialMediaLink.Target">
+								<img style="width:30px; height:30px" src="@(item.SocialMediaIcon.Url())" />
+						</li>
+					}
 				</ul>
 			</div>
-			<span class="footer-copy">Kroz trnje do zvezda © 2022.</span>
+			<span class="footer-copy">@Model.Signature()</span>
 		</div>
 	</div>
 </footer>
