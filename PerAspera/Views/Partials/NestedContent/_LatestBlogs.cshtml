@@ -1,19 +1,26 @@
 ﻿@model PerAspera.Models.Generated.LatestBlogs
 
-<div class="cards">
+
+<div class="card-slider">
 	<div class="wrap">
-		<div class="cards-wrap">
-			@foreach (var blog in Model.GetLatestBlogs(4))
-			{
-				<div class="card">
-					<img src="@blog.PreviewImage?.Url(mode: UrlMode.Relative)" alt="slide1">
-					<span class="card-label">@blog.PreviewTitle</span>
-					<a class="card-content" href="blog-aticle.html">
-						<h3 class="h3">@blog.Title</h3>
-						<span class="card-date">@blog.UpdateDate</span>
-					</a>
-				</div>
-			}
+		<h2 class="h2">@Model.Title</h2>
+		<div class="swiper-container js-swiper card-slider__slider">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				@foreach (var blog in Model.GetLatestBlogs(6))
+				{
+					<div class="swiper-slide card">
+						<img src="@blog.PreviewImage?.Url(mode: UrlMode.Relative)" alt="slide1">
+						<span class="card-label">@blog.PreviewTitle</span>
+						<a class="card-content" href="/">
+							<h3 class="h3">@blog.Title</h3>
+							<span class="card-date">@blog.UpdateDate</span>
+						</a>
+					</div>
+				}
+			</div>
+			<div class="swiper-scrollbar swiper-scrollbar-horizontal"><div class="swiper-scrollbar-drag" style="width: 415.842px; transform: translate3d(0px, 0px, 0px);"></div></div>
 		</div>
 	</div>
 </div>
