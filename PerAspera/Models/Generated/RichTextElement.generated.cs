@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace PerAspera.Models.Generated
 {
-	/// <summary>Description Banner</summary>
-	[PublishedModel("descriptionBanner")]
-	public partial class DescriptionBanner : PublishedElementModel
+	/// <summary>Rich Text Element</summary>
+	[PublishedModel("richTextElement")]
+	public partial class RichTextElement : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		public new const string ModelTypeAlias = "descriptionBanner";
+		public new const string ModelTypeAlias = "richTextElement";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
@@ -34,14 +34,14 @@ namespace PerAspera.Models.Generated
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<DescriptionBanner, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<RichTextElement, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public DescriptionBanner(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public RichTextElement(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,35 +50,11 @@ namespace PerAspera.Models.Generated
 		// properties
 
 		///<summary>
-		/// Background
+		/// Rich Text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("background")]
-		public virtual string Background => this.Value<string>(_publishedValueFallback, "background");
-
-		///<summary>
-		/// Button
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("button")]
-		public virtual global::Umbraco.Cms.Core.Models.Link Button => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "button");
-
-		///<summary>
-		/// Description
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("description")]
-		public virtual string Description => this.Value<string>(_publishedValueFallback, "description");
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+		[ImplementPropertyType("richText")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "richText");
 	}
 }

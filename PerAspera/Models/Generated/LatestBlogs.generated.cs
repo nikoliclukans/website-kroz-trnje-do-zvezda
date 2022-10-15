@@ -58,6 +58,13 @@ namespace PerAspera.Models.Generated
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Blogs => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "blogs");
 
 		///<summary>
+		/// Number Of Slides
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[ImplementPropertyType("numberOfSlides")]
+		public virtual int NumberOfSlides => this.Value<int>(_publishedValueFallback, "numberOfSlides");
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]

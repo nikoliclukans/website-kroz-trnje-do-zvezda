@@ -1,0 +1,26 @@
+﻿@model PerAspera.Models.Generated.DescriptionBanner
+@{
+	string backgroundColor;
+	switch (Model.Background)
+	{
+		case "White":
+			backgroundColor = string.Empty;
+			break;
+		case "Beige":
+			backgroundColor = "basic-block--beige";
+			break;
+		default:
+			backgroundColor = "basic-block--purple";
+			break;
+	}
+}
+
+<div class="basic-block @backgroundColor">
+	<div class="wrap">
+		<div class="basic-block__content">
+			<h2 class="h2">@Model.Title</h2>
+			<p>@Model.Description</p>
+			<a href="@Model.Button?.Url" class="btn basic-block__btn">@Model.Button?.Name<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+		</div>
+	</div>
+</div>
