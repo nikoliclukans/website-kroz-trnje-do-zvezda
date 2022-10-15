@@ -74,16 +74,3 @@
 	
 @Html.Partial("Forms/ShopOrderForm", new PerAspera.Models.ViewModels.ShopOrderDto(),
                         new ViewDataDictionary(this.ViewData) { { "Products", Model.GetProducts() } })
-
-@section Scripts{
-
-	<script>
-
-		function postFormResponse($form) {
-			$form.remove();
-			$(".order-form__content").append("Hvala sto ste porucili!");
-		}
-
-
-	</script>
-}

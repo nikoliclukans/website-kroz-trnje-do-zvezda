@@ -193,8 +193,13 @@
                 $.post($form.attr("action"), $form.serialize(), function (data) {
                 })
                     .done(function () {
-                        if (postFormResponse) {
-                            postFormResponse($form);
+
+                        if ($form.id === "contactForm") {
+                            contactPostFormResponse($form);
+                        } else if ($form.id === "contactForm") {
+                            postFormResponseYourForm($form)
+                        } else if ($form.id === "shopForm") {
+                            postFormResponse($form)
                         }
                     })
                     .fail(function () {
@@ -202,6 +207,23 @@
                     });
             });
         });
+
+        function contactPostFormResponse($form) {
+            $form.remove();
+            $(".form-box__form").append("Hvala sto ste nas kontaktirali");
+        }
+
+        function postFormResponseYourForm($form) {
+            $form.remove();
+            $(".order-form__content").append("Hvala sto ste podelili pricu sa nama!");
+        }
+
+        function postFormResponse($form) {
+            $form.remove();
+            $(".order-form__content").append("Hvala sto ste porucili!");
+        }
+
+
     </script>
 </body>
 
