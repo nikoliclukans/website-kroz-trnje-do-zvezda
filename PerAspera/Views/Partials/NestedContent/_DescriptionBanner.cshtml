@@ -1,4 +1,5 @@
 ﻿@model PerAspera.Models.Generated.DescriptionBanner
+
 @{
 	string backgroundColor;
 	switch (Model.Background)
@@ -20,7 +21,28 @@
 		<div class="basic-block__content">
 			<h2 class="h2">@Model.Title</h2>
 			<p>@Model.Description</p>
-			<a href="@Model.Button?.Url" class="btn basic-block__btn">@Model.Button?.Name<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+			@if(Model.Button != null){
+				<a href="@Model.Button?.Url" class="btn basic-block__btn">@Model.Button?.Name<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></a>
+			}
+			@if(Model.PaymentList?.Count() > 0){
+				<button type="button" class="btn js-shop-modal-open">Pošalji<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+				<div class="shop-card__popup js-shop-modal-overlay">
+					<div class="shop-card__popup-wrap">
+						<button class="js-modal-close"><span class="icon font-ico-close-x"><span class="sr-only">Close popup</span></span></button>
+						<div class="rte" style="color:black !important">
+							<h3>@Model.PopupTitle</h3>
+							<p>@Model.Description</p>
+							<p>Podaci za plaćanje:</p>
+							<ul>
+								@foreach (var item in @Model.PaymentList)
+							{
+									<li>@item.PaymentSlipItemName @item.PaymentSlipValue </li>
+							}
+							</ul>
+						</div>
+					</div>
+				</div>
+			}
 		</div>
 	</div>
 </div>

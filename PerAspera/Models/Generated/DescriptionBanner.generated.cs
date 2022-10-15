@@ -74,6 +74,30 @@ namespace PerAspera.Models.Generated
 		public virtual string Description => this.Value<string>(_publishedValueFallback, "description");
 
 		///<summary>
+		/// Payment list
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("paymentList")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::PerAspera.Models.Generated.PopupList> PaymentList => this.Value<global::System.Collections.Generic.IEnumerable<global::PerAspera.Models.Generated.PopupList>>(_publishedValueFallback, "paymentList");
+
+		///<summary>
+		/// Popup description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("popupDescription")]
+		public virtual string PopupDescription => this.Value<string>(_publishedValueFallback, "popupDescription");
+
+		///<summary>
+		/// Popup title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("popupTitle")]
+		public virtual string PopupTitle => this.Value<string>(_publishedValueFallback, "popupTitle");
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
