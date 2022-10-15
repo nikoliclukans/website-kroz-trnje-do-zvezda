@@ -50,6 +50,13 @@ namespace PerAspera.Models.Generated
 		// properties
 
 		///<summary>
+		/// Items Per Page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[ImplementPropertyType("itemsPerPage")]
+		public virtual int ItemsPerPage => this.Value<int>(_publishedValueFallback, "itemsPerPage");
+
+		///<summary>
 		/// Display In Navigation
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
