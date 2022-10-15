@@ -1,0 +1,14 @@
+@Model PerAspera.Models.ViewModel.OpenGraphViewModel
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="@Model.Title" />
+<meta property="og:description" content="@Model.Description" />
+<meta property="og:url" content="@Model.CanonicalUrl" />
+
+@if (Model.Image != null)
+{
+    <meta property="og:image" content="@Model.Image.Url()" />
+    <meta property="og:image:type" content="image/@Model.Image.MediaItem.ContentType.Alias" />
+    <meta property="og:image:width" content="@Model.Image.LocalCrops.Crops.First().Width" />
+    <meta property="og:image:height" content="@Model.Image.LocalCrops.Crops.First().Height" />
+}

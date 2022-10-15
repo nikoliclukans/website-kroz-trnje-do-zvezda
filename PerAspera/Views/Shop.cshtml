@@ -5,19 +5,7 @@
     Layout = "_Layout";
 }
 
-<div class="breadcrumbs">
-		<div class="wrap">
-			<ul class="breadcrumbs-list">
-				<li class="breadcrumbs-item home">
-					<a href="/" class="breadcrumbs-link"> Početna <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span>
-					</a>
-				</li>
-				<li class="breadcrumbs-item">
-					<a href="javascript:;" class="breadcrumbs-link">Shop</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+@Html.Partial("_Breadcrumbs", new PerAspera.Models.ViewModels.BreadCrumbsViewModel(Model))
 	<div class="shop-cards">
 		<div class="wrap">
 			<div class="shop-cards__wrap">
@@ -83,3 +71,6 @@
 			<a class="next @(!Model.ShopItemList.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.ShopItemList.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
 	</div>
 	</div>
+	
+@Html.Partial("Forms/ShopOrderForm", new PerAspera.Models.ViewModels.ShopOrderDto(),
+                        new ViewDataDictionary(this.ViewData) { { "Products", Model.GetProducts() } })

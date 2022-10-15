@@ -63,7 +63,8 @@ namespace PerAspera.Infrastructure.Search
 					Items = searchResultsPerPage.Select(item => new SearchResultsItemViewModel
 					{
 						Url = item.Content.Url(),
-						Text = item.SearchResult.Values["content"],
+						Text = item.SearchResult.Values["combinedFieldsContent"].Substring(0, 
+						item.SearchResult.Values["combinedFieldsContent"].Length < 500 ? item.SearchResult.Values["combinedFieldsContent"].Length : 500) + "...",
                         Title = GetTitle(item.Content)
 
                     }).ToList()
