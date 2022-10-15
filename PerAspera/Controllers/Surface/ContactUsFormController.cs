@@ -17,14 +17,17 @@ namespace PerAspera.Controllers.Surface
 	public class ContactUsFormController : SurfaceController
 	{
 		private readonly IEmailService _emailService;
+		private readonly IConfiguration _configuration;
 
 		public ContactUsFormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, 
 			ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, 
-			IPublishedUrlProvider publishedUrlProvider, IEmailService emailService) 
+			IPublishedUrlProvider publishedUrlProvider, IEmailService emailService,IConfiguration configuration) 
 			: base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
 		{
+            if (configuration is null) throw new ArgumentNullException(nameof(configuration));
 			_emailService = emailService;
-		}
+			_configuration = configuration;
+        }
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -35,13 +38,17 @@ namespace PerAspera.Controllers.Surface
 				return BadRequest();
 			}
 
-			//Send email
-			var message = $"Ime: {mode.Name}\n" +
-				$"Prezime: {mode.Surname}\n" +
-				$"Email adresa: {mode.Email}\n" +
-				$"Poruka: {mode.Message}";
+			var from = _configuration.GetValue<string>("Umbraco:CMS:Global:Smtp:From");
+			var to = _configuration.GetValue<string>("Umbraco:CMS:Global:Smtp:To");
 
-			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage("dev@vegait.rs", "andrej.iviciak@vegait.rs", "Kontaktirajte nas", message, false),new ContactUsEmailTemplate(message));
+            //Send email
+            var message = @$"
+				Ime: {mode.Name}
+				Prezime: {mode.Surname}
+				Email adresa: {mode.Email}
+				Poruka: {mode.Message}";
+
+			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(from,to, "Kontaktirajte nas",message, false),new ContactUsEmailTemplate(message));
 
 			return Ok();
 		}

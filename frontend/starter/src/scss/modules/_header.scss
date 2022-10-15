@@ -5,6 +5,9 @@
 	background: $send;
 	border-top: 8px solid $purple;
 	box-shadow: 0 2px 20px rgba(34, 34, 34, 0.2);
+	@include media-breakpoint-down(md) {
+		padding: 8px 0;
+	}
 }
 .header__container {
 	display: flex;
@@ -13,9 +16,15 @@
 .header__logo {
 	max-width: 100px;
 	width: 100%;
+	@include media-breakpoint-down(md) {
+		max-width: 80px;
+	}
 }
 .nav {
 	margin-left: auto;
+	@include media-breakpoint-down (md) {
+		display: none;
+	}
 }
 .nav__list {
 	display: flex;
@@ -62,6 +71,11 @@
 			top: 2px;
 		}
 	}
+	@include media-breakpoint-down(md) {
+		padding-left: 0;
+		border-left: none;
+		padding-right: 20px;
+	}
 }
 .header-search__wrap {
 	display: none;
@@ -80,6 +94,11 @@
 		top: 10px;
 	}
 }
+.header-features {
+	@include media-breakpoint-down(md) {
+		margin-left: auto;
+	}
+}
 .header-search {
 	position: relative;
 	&--open {
@@ -95,5 +114,22 @@
 			display: block;
 			position: absolute;
 		}
+	}
+}
+.header-menu-btn {
+	display: none;
+	padding-left: 20px;
+	border-left: 1px solid $grey;
+	.icon {
+		font-size: 30px;
+		color: $purple;
+		position: relative;
+		top: -2px;
+		&.close {
+			display: none;
+		}
+	}
+	@include media-breakpoint-down(md) {
+		display: block;
 	}
 }
