@@ -26,6 +26,7 @@
 	border-radius: 5px;
 	background: $white;
 	max-width: 874px;
+	width: 100%;
 	position: relative;
 	display: flex;
 	.js-modal-close {
@@ -39,9 +40,24 @@
 	max-width: 380px;
 	width: 100%;
 	margin-right: 44px;
+	text-align: left;
+	.btn {
+		margin-top: 30px;
+	}
 }
+
 .shop-card__popup-text {
 	text-align: left;
+	.h3 {
+		font-size: 34px;
+		line-height: 40px;
+		margin-bottom: 10px;
+	}
+	p {
+		font-size: 17px;
+		line-height: 25px;
+		margin-bottom: 10px;
+	}
 }
 .shop-card {
 	flex: 1 1 33.33%;

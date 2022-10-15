@@ -155,12 +155,14 @@ $swiper-navigation-size: 44px;
 	transform: scale(0.33);
 }
 .swiper-pagination-bullet {
-	width: 8px;
-	height: 8px;
+	width: 12px;
+	height: 12px;
 	display: inline-block;
 	border-radius: 50%;
-	background: #000;
-	opacity: 0.2;
+	background: $grey;
+	&:not(:last-of-type) {
+		margin-right: 8px;
+	}
 }
 button.swiper-pagination-bullet {
 	border: none;
@@ -176,7 +178,7 @@ button.swiper-pagination-bullet {
 }
 .swiper-pagination-bullet-active {
 	opacity: 1;
-	background: $orange;
+	background: $purple;
 }
 .swiper-container-vertical > .swiper-pagination-bullets {
 	right: 10px;

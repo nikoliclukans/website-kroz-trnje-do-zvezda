@@ -11,5 +11,14 @@
 			}
 			return null;
 		}
-	}
+
+        public static string GetStringParameter(this IQueryCollection queryCollection, string key)
+        {
+            if (queryCollection.TryGetValue(key, out var value))
+            {
+                return value.ToString();
+            }
+			return string.Empty;
+        }
+    }
 }

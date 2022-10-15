@@ -1,0 +1,51 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Search>
+@using ContentModels = PerAspera.Models.Generated;
+@{
+	Layout = "_Layout";
+}
+
+<div class="search basic-block--beige">
+		<div class="wrap">
+			<div class="search-wrap">
+				<input type="text" class="search__input" placeholder="Pretrazi...">
+				<span class="icon font-ico-search"><span class="sr-only">Search icon</span></span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="search-view">
+			<h2 class="search-title centered">Rezultati pretrage za "<span class="span--purple">Test</span>":</h2>
+			<ul class="search-list">
+				<li class="search-item">
+					<a class="search-item-link">
+						<h2 class="h2">Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi</h2>
+						<p class="description">Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac.</p>
+					</a>
+				</li>
+				<li class="search-item">
+					<a class="search-item-link">
+						<h2 class="h2">Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi</h2>
+						<p class="description">Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac.</p>
+					</a>
+				</li>
+				<li class="search-item">
+					<a class="search-item-link">
+						<h2 class="h2">Nullam facilisis tortor fermentum elit facilisis venenatis vel sit amet mi</h2>
+						<p class="description">Curabitur ornare diam eget interdum aliquam. Donec id sodales mauris. Fusce eu finibus tortor. Integer ultricies velit neque, vitae lacinia enim pulvinar a. Fusce tortor dolor, imperdiet quis laoreet eu, pulvinar vitae nisl. Nam euismod nisl quis tortor placerat, et aliquam erat dignissim. Suspendisse lobortis pharetra enim, vel elementum tellus vehicula ac.</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="pagination">
+			<button class="previous disabled" type="button"><i class="font-ico-chevron-left"></i>Prethodna</button>
+			<ul class="pagination-list">
+				<li><a class="pagination-button active" href="#">1</a></li>
+				<li><a class="pagination-button" href="#">2</a></li>
+				<li><a class="pagination-button" href="#">3</a></li>
+			</ul>
+			<button class="next" type="button">Sledeća<i class="font-ico-chevron-right"></i></button>
+		</div>
+	</div>

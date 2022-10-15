@@ -1,4 +1,6 @@
 using PerAspera.Extensions;
+using PerAspera.Infrastructure.Search.Configurations;
+using PerAspera.Infrastructure.Search;
 
 namespace PerAspera
 {
@@ -37,6 +39,8 @@ namespace PerAspera
                 .AddComposers()
                 .AddCustomServices()
                 .Build();
+
+           
         }
 
         /// <summary>

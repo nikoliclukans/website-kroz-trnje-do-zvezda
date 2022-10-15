@@ -10,6 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.34.3" />
+    <PackageReference Include="Lucene.Net.Contrib" Version="3.0.3" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="4.0.0" />
     <PackageReference Include="Umbraco.Cms" Version="10.2.1" />
   </ItemGroup>
@@ -22,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Models\" />
+    <Folder Include="Infrastructure\Search\Services\" />
     <Folder Include="Models\Generated\" />
   </ItemGroup>
 
