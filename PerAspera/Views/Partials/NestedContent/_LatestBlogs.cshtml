@@ -1,4 +1,5 @@
-﻿@model PerAspera.Models.Generated.LatestBlogs
+﻿@using PerAspera.Models.Generated
+@model PerAspera.Models.Generated.LatestBlogs
 
 
 <div class="card-slider">
@@ -8,7 +9,10 @@
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
-				@foreach (var blog in Model.GetLatestBlogs(6))
+				@{
+					var numberOfSlides = Model.NumberOfSlides > 0 ? Model.NumberOfSlides : LatestBlogs.defaultNumberOfSlides;
+				}
+				@foreach (var blog in Model.GetLatestBlogs(Model.NumberOfSlides))
 				{
 					<div class="swiper-slide card">
 						<img src="@blog.PreviewImage?.Url(mode: UrlMode.Relative)" alt="slide1">
