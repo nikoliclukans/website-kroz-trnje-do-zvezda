@@ -9,6 +9,9 @@
 .form-box__wrap {
 	display: flex;
 	position: relative;
+	&.hide {
+		display: none;
+	}
 	&::after {
 		content: '';
 		position: absolute;
