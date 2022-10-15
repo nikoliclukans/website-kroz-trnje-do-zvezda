@@ -80,3 +80,11 @@ select::-ms-expand {
 .form-row {
 	display: flex;
 }
+.form-submit__msg {
+	text-align: center;
+	padding: 40px 0;
+	display: none;
+	&.show {
+		display: block;
+	}
+}
