@@ -167,6 +167,9 @@
 
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    
+    @RenderSection("Scripts", required: false)
+    
     <script type="text/javascript">
         $(document).ready(function () {
             $('#search-button').click(function () {
@@ -179,6 +182,24 @@
                     var query = $(this).val();
                     window.location.href = "/search?query=" + query;
                 }
+            });
+
+            $(document).on('submit', 'form', function (e) {
+                e.preventDefault(); // cancel default submit
+                var $form = $(this);
+                if (!$form.valid()) {
+                    return; // will display the validation errors
+                }
+                $.post($form.attr("action"), $form.serialize(), function (data) {
+                })
+                    .done(function () {
+                        if (postFormResponse) {
+                            postFormResponse($form);
+                        }
+                    })
+                    .fail(function () {
+
+                    });
             });
         });
     </script>

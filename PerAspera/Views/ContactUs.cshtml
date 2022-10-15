@@ -13,3 +13,16 @@
 {
     @await Html.NestedContent(item, ViewData)
 }
+
+@section Scripts{
+
+	<script>
+
+		function postFormResponse($form) {
+			$form.remove();
+			$(".form-box__form").append("Hvala sto ste nas kontaktirali");
+		}
+
+
+	</script>
+}

@@ -60,7 +60,6 @@ namespace PerAspera.Controllers.Surface
 			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To, 
 				$"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
-
 			return Ok();
 		}
 
