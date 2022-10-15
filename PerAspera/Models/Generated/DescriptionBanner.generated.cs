@@ -20,7 +20,7 @@ namespace PerAspera.Models.Generated
 {
 	/// <summary>Description Banner</summary>
 	[PublishedModel("descriptionBanner")]
-	public partial class DescriptionBanner : PublishedContentModel
+	public partial class DescriptionBanner : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -41,7 +41,7 @@ namespace PerAspera.Models.Generated
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public DescriptionBanner(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public DescriptionBanner(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
