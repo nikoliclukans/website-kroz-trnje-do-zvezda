@@ -1,0 +1,19 @@
+﻿@model PerAspera.Models.Generated.LatestBlogs
+
+<div class="cards">
+	<div class="wrap">
+		<div class="cards-wrap">
+			@foreach (var blog in Model.GetLatestBlogs(4))
+			{
+				<div class="card">
+					<img src="@blog.PreviewImage?.Url(mode: UrlMode.Relative)" alt="slide1">
+					<span class="card-label">@blog.PreviewTitle</span>
+					<a class="card-content" href="blog-aticle.html">
+						<h3 class="h3">@blog.Title</h3>
+						<span class="card-date">@blog.UpdateDate</span>
+					</a>
+				</div>
+			}
+		</div>
+	</div>
+</div>
