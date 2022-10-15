@@ -38,11 +38,12 @@
 	display: flex;
 	width: 100%;
 	align-items: center;
+	justify-content: space-between;
 	text-align: left;
 	.icon {
 		font-size: 16px;
 		font-weight: 400;
 		color: $purple;
-		margin-left: auto;
+		margin-left: 20px;
 	}
 }

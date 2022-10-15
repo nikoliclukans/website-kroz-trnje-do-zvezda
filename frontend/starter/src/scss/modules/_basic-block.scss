@@ -16,6 +16,9 @@
 			border: 1px solid $white;
 		}
 	}
+	@include media-breakpoint-down(md) {
+		padding: 50px 0;
+	}
 }
 .basic-block__content {
 	text-align: center;

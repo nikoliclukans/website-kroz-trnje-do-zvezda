@@ -8,7 +8,7 @@ namespace PerAspera.Models.Generated
 
         public string Query { get; set; }
 
-        public string GetPaginatedUrl(int pageNumber) => $"{this.Url()}?query={Query}";
+        public string GetPaginatedUrl(int pageNumber) => $"{this.Url()}?query={Query}&page={pageNumber}";
 
     }
 }

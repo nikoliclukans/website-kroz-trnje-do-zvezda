@@ -14,7 +14,7 @@ const modalHandler = {
 			$this.addClass('active');
 			slide.eq(thisIndex).addClass('modal-overlay--opened');
 		});
-		$('.shop-card').on('click', '.js-shop-modal-open', function() {
+		$('.js-shop-modal-open').on('click', function() {
 			$('.js-shop-modal-overlay').removeClass('open');
 			if ($(this).next().is(':hidden')) {
 				$(this).next().addClass('open');

@@ -8,4 +8,7 @@
 	.swiper-container {
 		overflow: visible;
 	}
+	@include media-breakpoint-down(md) {
+		padding: 50px;
+	}
 }

@@ -2,14 +2,21 @@
 	padding: 60px 0;
 	background: $send;
 	text-align: center;
+	@include media-breakpoint-down(md) {
+		padding: 40px 0;
+	}
 }
 
 .filters-buttons {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 100%;
 	border-top: 2px solid rgba(34, 34, 34, 0.5);
 	padding-top: 25px;
+	@include media-breakpoint-down(md) {
+		justify-content: flex-start;
+	}
 }
 
 .filters-reset {
@@ -20,4 +27,7 @@
 	text-transform: uppercase;
 	text-decoration: underline;
 	color: $purple;
+	@include media-breakpoint-down(md) {
+		margin-left: auto;
+	}
 }

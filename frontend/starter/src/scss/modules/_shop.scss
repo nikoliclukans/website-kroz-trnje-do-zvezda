@@ -29,6 +29,9 @@
 	width: 100%;
 	position: relative;
 	display: flex;
+	.rte {
+		text-align: left;
+	}
 	.js-modal-close {
 		position: absolute;
 		top: 15px;

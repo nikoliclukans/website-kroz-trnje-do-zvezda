@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Infrastructure\Models\**" />
+    <Content Remove="Infrastructure\Models\**" />
+    <EmbeddedResource Remove="Infrastructure\Models\**" />
+    <None Remove="Infrastructure\Models\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Remove="Views\Partials\_Footer.cshtml" />
     <Content Remove="Views\Partials\_Header.cshtml" />
   </ItemGroup>
@@ -23,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Models\" />
     <Folder Include="Infrastructure\Search\Services\" />
     <Folder Include="Models\Generated\" />
   </ItemGroup>

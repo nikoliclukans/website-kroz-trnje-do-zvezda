@@ -9,6 +9,9 @@
 			margin-right: 30px;
 		}
 	}
+	@include media-breakpoint-down(md) {
+		padding: 50px 0;
+	}
 }
 .card {
 	max-width: 380px;

@@ -5,7 +5,7 @@ namespace PerAspera.Infrastructure.Search.Models
     {
         private PaginationRequest(int page, int itemsPerPage)
         {
-            Page = page;
+            Page = page > 0 ? page : 1;
             ItemsPerPage = itemsPerPage;
         }
 
