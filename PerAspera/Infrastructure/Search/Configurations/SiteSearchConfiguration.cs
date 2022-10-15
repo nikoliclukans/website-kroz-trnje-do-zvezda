@@ -36,7 +36,8 @@ namespace PerAspera.Infrastructure.Search.Configurations
 										YourStories.ModelTypeAlias,
 										Shop.ModelTypeAlias,
 										BlogPage.ModelTypeAlias,
-										Blogs.ModelTypeAlias
+										Blogs.ModelTypeAlias,
+										ContactUs.ModelTypeAlias
 									})
 				},
 				{ nameof(JsonSearchableFields), new Lazy<object>(() => new string[] { "content" }) },

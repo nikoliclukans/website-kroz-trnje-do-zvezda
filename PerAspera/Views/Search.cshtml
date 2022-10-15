@@ -36,19 +36,22 @@
 			}
 		</div>
 	</div>
-<div class="wrap">
-	<div class="pagination">
-		@if (Model.SearchItems != null)
-		{
-			<a class="previous disabled" href=""><i class="font-ico-chevron-left"></i>Prethodna</a>
-			<a class="previous @(!Model.SearchItems.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.SearchItems.CurrentPage) - 1))"><i class="font-ico-chevron-left"></i>Prethodna</a>
-			<ul class="pagination-list">
-				@foreach (var item in Enumerable.Range(1, Convert.ToInt32(Model.SearchItems.TotalPageNumber)))
-				{
-					<li><a class="pagination-button @(Model.SearchItems.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
-				}
-			</ul>
-			<a class="next @(!Model.SearchItems.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.SearchItems.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
-		}
+@if(Model.SearchItems.Collection?.Any() ?? false)
+{
+
+	<div class="wrap">
+		<div class="pagination">
+			@if (Model.SearchItems != null)
+			{
+				<a class="previous @(!Model.SearchItems.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.SearchItems.CurrentPage) - 1))"><i class="font-ico-chevron-left"></i>Prethodna</a>
+				<ul class="pagination-list">
+					@foreach (var item in Enumerable.Range(1, Convert.ToInt32(Model.SearchItems.TotalPageNumber)))
+					{
+						<li><a class="pagination-button @(Model.SearchItems.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
+					}
+				</ul>
+				<a class="next @(!Model.SearchItems.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.SearchItems.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
+			}
+		</div>
 	</div>
-</div>
+}
