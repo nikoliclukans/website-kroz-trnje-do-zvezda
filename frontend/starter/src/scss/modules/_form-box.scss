@@ -29,11 +29,19 @@
 	flex: 1 1 30%;
 	max-width: 30%;
 	padding: 80px 50px 80px 0;
+	@include media-breakpoint-down(md) {
+		flex: 1 1 330px;
+		max-width: 330px;
+		padding: 50px 20px 50px 0;
+	}
 }
 .form-box__form {
 	flex: 1;
 	background: $white;
 	padding: 80px 0 80px 50px;
+	@include media-breakpoint-down(md) {
+		padding: 50px 0 50px 20px;
+	}
 }
 .form-box__field {
 	display: flex;
@@ -41,6 +49,9 @@
 	margin-bottom: 20px;
 	input {
 		width: 50%;
+		@include media-breakpoint-down(md) {
+			width: 100%;
+		}
 	}
 }
 
