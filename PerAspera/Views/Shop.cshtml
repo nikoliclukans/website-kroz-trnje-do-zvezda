@@ -71,3 +71,6 @@
 			<a class="next @(!Model.ShopItemList.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.ShopItemList.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
 	</div>
 	</div>
+	
+@Html.Partial("Forms/ShopOrderForm", new PerAspera.Models.ViewModels.ShopOrderDto(),
+                        new ViewDataDictionary(this.ViewData) { { "Products", Model.GetProducts() } })

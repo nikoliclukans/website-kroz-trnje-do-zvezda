@@ -1,7 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Extensions.DependencyInjection;
-using PerAspera.Infrastructure.Configuration;
+﻿using PerAspera.Infrastructure.Configuration;
 using PerAspera.Infrastructure.Implementation;
 using PerAspera.Infrastructure.Interfaces;
 
