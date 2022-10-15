@@ -12,6 +12,11 @@
             <h3 class="h3">@Model.FormTitle</h3>
             <p>@Model.FormDescription</p>
             @Html.Partial("Forms/YourStoryForm", new PerAspera.Models.ViewModels.YourStoryFormDto())
+            <div class="form-submit__msg" id="thankYouFormMessage">
+                <div class="wrap">
+                    <p>@Model.ThankYouMessage</p>
+                </div>
+            </div>
 
         </div>
     </div>

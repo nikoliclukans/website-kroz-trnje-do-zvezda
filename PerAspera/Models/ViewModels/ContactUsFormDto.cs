@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace PerAspera.Models.ViewModels
 {
@@ -17,5 +18,8 @@ namespace PerAspera.Models.ViewModels
 
         [Required]
         public string  Message{ get; set; }
+
+        [IgnoreDataMember]
+        public string? ThankYouMessage { get; set; }
 	}
 }

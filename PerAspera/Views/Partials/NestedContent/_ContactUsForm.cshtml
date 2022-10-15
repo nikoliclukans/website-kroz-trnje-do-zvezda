@@ -7,7 +7,7 @@
 				<h2 class="h2">@Model.Title</h2>
 				<p>@Model.Description</p>
 			</div>
-			@Html.Partial("Forms/ContactUsForm", new PerAspera.Models.ViewModels.ContactUsFormDto())
+			@Html.Partial("Forms/ContactUsForm", new PerAspera.Models.ViewModels.ContactUsFormDto(){ThankYouMessage = Model.ThankYouMessage})
 		</div>
 	</div>
 </div>

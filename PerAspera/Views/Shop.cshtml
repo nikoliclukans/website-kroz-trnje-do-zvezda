@@ -74,3 +74,9 @@
 	
 @Html.Partial("Forms/ShopOrderForm", new PerAspera.Models.ViewModels.ShopOrderDto(),
                         new ViewDataDictionary(this.ViewData) { { "Products", Model.GetProducts() } })
+
+<div class="form-submit__msg" id="shopFormMessage" >
+	<div class="wrap">
+		<p>@Model.ThankYouMessage</p>
+	</div>
+</div>

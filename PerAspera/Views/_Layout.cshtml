@@ -194,13 +194,16 @@
                 })
                     .done(function () {
 
-                        if ($form.id === "contactForm") {
+                        var id = $form[0].id;
+
+                        if (id === "contactForm") {
                             contactPostFormResponse($form);
-                        } else if ($form.id === "contactForm") {
+                        } else if (id === "yourSideForm") {
                             postFormResponseYourForm($form)
-                        } else if ($form.id === "shopForm") {
+                        } else if (id === "shopForm") {
                             postFormResponse($form)
                         }
+                        $form.remove();
                     })
                     .fail(function () {
 
@@ -209,18 +212,16 @@
         });
 
         function contactPostFormResponse($form) {
-            $form.remove();
-            $(".form-box__form").append("Hvala sto ste nas kontaktirali");
+            $("#contactThankYou").addClass("show");
         }
 
         function postFormResponseYourForm($form) {
-            $form.remove();
-            $(".order-form__content").append("Hvala sto ste podelili pricu sa nama!");
+            $("#thankYouFormMessage").addClass("show");
         }
 
         function postFormResponse($form) {
-            $form.remove();
-            $(".order-form__content").append("Hvala sto ste porucili!");
+            $('.order-form__content').append($("#shopFormMessage"));
+            $('.order-form__content').find("#shopFormMessage").addClass("show");
         }
 
 
