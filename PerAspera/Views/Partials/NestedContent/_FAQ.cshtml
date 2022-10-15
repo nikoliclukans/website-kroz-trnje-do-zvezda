@@ -1,0 +1,21 @@
+﻿@using PerAspera.Models.Generated
+@model PerAspera.Models.Generated.FAQ
+
+<div class="accordions">
+	<div class="wrap">
+		<h2 class="h2">@Model.Title</h2>
+		<ul class="accordions-list">
+			@foreach (var item in @Model.Questions ?? Enumerable.Empty<FAqitem>())
+			{
+				<li class="accordions-item">
+					<button class="accordions-toogle js-acc-btn">
+						@item.Question <span class="icon font-ico-chevron-down"><span class="sr-only">accordion arrow</span></span>
+					</button>
+					<div class="accordions-content">
+						<p>@item.Answer</p>
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+</div>
