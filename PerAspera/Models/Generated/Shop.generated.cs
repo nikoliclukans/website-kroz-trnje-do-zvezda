@@ -50,6 +50,14 @@ namespace PerAspera.Models.Generated
 		// properties
 
 		///<summary>
+		/// Thank You Message
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("thankYouMessage")]
+		public virtual string ThankYouMessage => this.Value<string>(_publishedValueFallback, "thankYouMessage");
+
+		///<summary>
 		/// Display In Navigation
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.2.1+25a20cf")]

@@ -193,15 +193,38 @@
                 $.post($form.attr("action"), $form.serialize(), function (data) {
                 })
                     .done(function () {
-                        if (postFormResponse) {
-                            postFormResponse($form);
+
+                        var id = $form[0].id;
+
+                        if (id === "contactForm") {
+                            contactPostFormResponse($form);
+                        } else if (id === "yourSideForm") {
+                            postFormResponseYourForm($form)
+                        } else if (id === "shopForm") {
+                            postFormResponse($form)
                         }
+                        $form.remove();
                     })
                     .fail(function () {
 
                     });
             });
         });
+
+        function contactPostFormResponse($form) {
+            $("#contactThankYou").addClass("show");
+        }
+
+        function postFormResponseYourForm($form) {
+            $("#thankYouFormMessage").addClass("show");
+        }
+
+        function postFormResponse($form) {
+            $('.order-form__content').append($("#shopFormMessage"));
+            $('.order-form__content').find("#shopFormMessage").addClass("show");
+        }
+
+
     </script>
 </body>
 
