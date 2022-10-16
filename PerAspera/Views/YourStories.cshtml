@@ -27,11 +27,12 @@
 
             @foreach (var item in Model.Stories.Collection)
             {
-                <div class="comment">
-                    <h3 class="h3 comment-heading">@item.StoryBy:</h3>
+                <div class="comment js-modal-open">
+                    <h3 class="h3 comment-heading"><span class="icon font-ico-quote"><span class="sr-only">Quote icon</span></span>@item.StoryBy:</h3>
                     <p class="comment-description">@item.Text</p>
                     <button class="comment-read-more js-modal-open">Pročitaj celu priču<i class="font-ico-chevron-right"></i></button>
                 </div>
+
             }
         </div>
 
@@ -47,15 +48,20 @@
         </div>
     </div>
 </div>
-<div class="modal-overlay js-modal-overlay">
-    <div class="modal">
-        <div class="modal-content">Something3</div>
-        <a class="modal-close-btn js-modal-close"><i class="font-ico-close-x"></i></a>
-    </div>
-</div>
-<div class="modal-overlay js-modal-overlay">
-    <div class="modal">
-        <div class="modal-content">Something3</div>
-        <a class="modal-close-btn js-modal-close"><i class="font-ico-close-x"></i></a>
-    </div>
-</div>
+<div class="modals">
+    @foreach (var item in Model.Stories.Collection)
+    {
+        <div class="modal-overlay js-modal-overlay">
+            <div class="modal js-modal">
+                <div class="modal-content">
+                    <div class="modal-head">
+                        <h3 class="h2 modal-title"> <span class="icon font-ico-quote"><span class="sr-only">Quote icon</span></span>@item.StoryBy:</h3>
+                    </div>
+                    <p class="modal-text">@item.Text</p>
+                </div>
+                <a class="modal-close-btn js-modal-close"><i class="font-ico-close-x"></i></a>
+            </div>
+        </div>
+
+    }
+ </div>
