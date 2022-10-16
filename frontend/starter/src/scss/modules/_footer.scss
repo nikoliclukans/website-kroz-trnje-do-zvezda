@@ -73,6 +73,10 @@
 			color: $send;
 			font-size: 30px;
 		}
+		img {
+			width: 30px !important;
+			height: auto !important;
+		}
 		@include hover {
 			opacity: 0.4;
 		}
