@@ -9,6 +9,11 @@
 		overflow: visible;
 	}
 	@include media-breakpoint-down(md) {
-		padding: 50px;
+		padding: 50px 0;
+	}
+	@include media-breakpoint-down(sm) {
+		.h2 {
+			margin-bottom: 30px;
+		}
 	}
 }

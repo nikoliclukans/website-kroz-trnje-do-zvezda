@@ -6,12 +6,18 @@
 	padding: 80px 0;
 	background: $send;
 	text-align: center;
+	@include media-breakpoint-down(sm) {
+		padding: 50px 0;
+	}
 }
 
 .accordions-content {
 	display: none;
 	padding: 30px 30px 10px;
 	border-left: 2px solid $purple;
+	@include media-breakpoint-down(sm) {
+		padding: 20px 20px 10px;
+	}
 }
 
 .accordions-list {
@@ -40,6 +46,11 @@
 	align-items: center;
 	justify-content: space-between;
 	text-align: left;
+	@include media-breakpoint-down(sm) {
+		font-size: 20px;
+		line-height: 24px;
+		padding: 18.5px 20px;
+	}
 	.icon {
 		font-size: 16px;
 		font-weight: 400;

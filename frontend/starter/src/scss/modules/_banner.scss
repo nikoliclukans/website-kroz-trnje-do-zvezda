@@ -19,6 +19,10 @@
 		padding: 140px 0 80px;
 		min-height: 480px;
 	}
+	@include media-breakpoint-down(sm) {
+		padding: 134px 0 30px;
+		min-height: 500px;
+	}
 }
 .banner__content {
 	max-width: 500px;
@@ -32,8 +36,10 @@
 }
 .banner__title {
 	margin-bottom: 12px;
+	@include media-breakpoint-down(sm) {
+		margin-bottom: 10px;
+	}
 }
-
 
 .banner__holder {
 	color: $white;

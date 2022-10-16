@@ -23,6 +23,7 @@
 	}
 	@include media-breakpoint-down(sm) {
 		flex-direction: column;
+		margin: 0 -20px;
 		&::after {
 			display: none;
 		}
@@ -37,6 +38,12 @@
 		max-width: 330px;
 		padding: 50px 20px 50px 0;
 	}
+	@include media-breakpoint-down(sm) {
+		flex: 1 1 100%;
+		max-width: 100%;
+		padding: 50px 20px 30px;
+		text-align: center;
+	}
 }
 .form-box__form {
 	flex: 1;
@@ -48,11 +55,19 @@
 	@include media-breakpoint-down(md) {
 		padding: 50px 0 50px 20px;
 	}
+	@include media-breakpoint-down(sm) {
+		padding: 30px 20px;
+	}
 }
 .form-box__field {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 20px;
+	.select-wrap {
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 5px;
+		}
+	}
 	input {
 		width: 50%;
 		@include media-breakpoint-down(md) {
@@ -64,6 +79,9 @@
 .order-form {
 	background: $send;
 	padding: 80px 0;
+	@include media-breakpoint-down(md) {
+		padding: 50px 0;
+	}
 }
 .form-row {
 	width: 100%;
@@ -76,6 +94,12 @@
 		.select-wrap {
 			width: 100%;
 			max-width: 100%;
+		}
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+			&:first-of-type {
+				margin-right: 0;
+			}
 		}
 	}
 }

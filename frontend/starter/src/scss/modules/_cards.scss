@@ -1,26 +1,38 @@
 .cards-wrap {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(30%, 1fr));
 	padding: 80px 0 50px;
 	.card {
-		flex: 1 1 33.33%;
-		max-width: 33.33%;
+		max-width: 100%;
+		margin-right: 30px;
 		margin-bottom: 30px;
-		&:not(:nth-of-type(3n)) {
-			margin-right: 30px;
-		}
-		@include media-breakpoint-down(md) {
-			max-width: 50%;
-			&:not(:nth-of-type(3n)) {
-				margin-right: auto;
-			}
-			&:not(:nth-of-type(2n)) {
+		&:nth-child(3n) {
+			margin-right: 0;
+			@include media-breakpoint-down(md) {
 				margin-right: 20px;
 			}
+			@include media-breakpoint-down(sm) {
+				margin-right: 0;
+			}
+		}
+		@include media-breakpoint-down(md) {
+			margin-right: 20px;
+			margin-bottom: 20px;
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+		@include media-breakpoint-down(sm) {
+			margin-right: 0;
+			height: 423px;
 		}
 	}
 	@include media-breakpoint-down(md) {
+		grid-template-columns: repeat(2, minmax(45%, 1fr));
 		padding: 50px 0;
+	}
+	@include media-breakpoint-down(sm) {
+		grid-template-columns: repeat(1, minmax(100%, 1fr));
 	}
 }
 .card {
@@ -49,6 +61,10 @@
 		height: 100%;
 		object-fit: cover;
 	}
+	@include media-breakpoint-down(sm) {
+		max-width: 270px;
+		height: 340px;
+	}
 }
 .card-link {
 	display: block;
@@ -71,6 +87,10 @@
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	background: $green;
+	@include media-breakpoint-down(sm) {
+		font-size: 16px;
+		line-height: 17px;
+	}
 }
 .card-content {
 	position: relative;
@@ -83,6 +103,10 @@
 		font-size: 28px;
 		line-height: 34px;
 		margin-bottom: 0;
+		@include media-breakpoint-down(sm) {
+			font-size: 24px;
+			line-height: 28px;
+		}
 	}
 }
 .card-date {

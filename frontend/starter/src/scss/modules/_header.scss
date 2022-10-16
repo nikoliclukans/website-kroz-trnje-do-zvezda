@@ -8,6 +8,11 @@
 	@include media-breakpoint-down(md) {
 		padding: 8px 0;
 	}
+	@include media-breakpoint-down(sm) {
+		padding: 4px 0;
+		position: relative;
+		box-shadow: none;
+	}
 }
 .header__container {
 	display: flex;
@@ -19,6 +24,9 @@
 	@include media-breakpoint-down(md) {
 		max-width: 80px;
 	}
+	@include media-breakpoint-down(sm) {
+		max-width: 65px;
+	}
 }
 .nav {
 	margin-left: auto;
@@ -27,12 +35,19 @@
 		position: fixed;
 		top: 120px;
 		left: 0;
-		background: rgba($send, 0.6);
+		background: rgba($send, 0.7);
 		padding: 70px 20px;
 		text-align: center;
 		width: 100%;
 		height: 100%;
 		z-index: 10;
+		&.open {
+			display: block;
+		}
+	}
+	@include media-breakpoint-down(sm) {
+		top: 94px;
+		padding: 50px 20px;
 	}
 }
 .nav__list {
@@ -76,6 +91,10 @@
 	position: relative;
 	@include media-breakpoint-down(md) {
 		text-transform: uppercase;
+	}
+	@include media-breakpoint-down(sm) {
+		font-size: 17px;
+		line-height: 18px;
 	}
 
 	&::after {
@@ -129,6 +148,17 @@
 		right: 20px;
 		top: 10px;
 	}
+	@include media-breakpoint-down(md) {
+		margin-top: 12px;
+		z-index: 10;
+	}
+	@include media-breakpoint-down(sm) {
+		width: 100%;
+		margin-top: 0;
+		input {
+			border-radius: 0;
+		}
+	}
 }
 .header-features {
 	@include media-breakpoint-down(md) {
@@ -137,6 +167,9 @@
 }
 .header-search {
 	position: relative;
+	@include media-breakpoint-down(sm) {
+		position: static;
+	}
 	&--open {
 		.header-search__icon {
 			.font-ico-close-x {
@@ -163,6 +196,14 @@
 		top: -2px;
 		&.close {
 			display: none;
+		}
+	}
+	&.open {
+		.icon {
+			display: none;
+			&.close {
+				display: block;
+			}
 		}
 	}
 	@include media-breakpoint-down(md) {

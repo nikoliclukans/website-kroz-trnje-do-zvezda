@@ -2,10 +2,38 @@
 	padding: 36px 0 24px;
 }
 .shop-cards__wrap {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(30%, 1fr));
+	@include media-breakpoint-down(md) {
+		grid-template-columns: repeat(2, minmax(45%, 1fr));
+	}
+	@include media-breakpoint-down(sm) {
+		grid-template-columns: repeat(1, minmax(100%, 1fr));
+	}
 }
-
+.shop-card {
+	margin-right: 30px;
+	max-width: 100%;
+	margin-bottom: 56px;
+	&:nth-child(3n) {
+		margin-right: 0;
+		@include media-breakpoint-down(md) {
+			margin-right: 20px;
+		}
+		@include media-breakpoint-down(sm) {
+			margin-right: 0;
+		}
+	}
+	@include media-breakpoint-down(md) {
+		margin-right: 20px;
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+	}
+	@include media-breakpoint-down(sm) {
+		margin-right: 0;
+	}
+}
 .shop-card__popup {
 	display: none;
 	position: fixed;
@@ -26,9 +54,19 @@
 	border-radius: 5px;
 	background: $white;
 	max-width: 874px;
+	max-height: 662px;
 	width: 100%;
 	position: relative;
 	display: flex;
+	@include media-breakpoint-down(md) {
+		margin: 0 20px;
+	}
+	@include media-breakpoint-down(sm) {
+		flex-direction: column;
+		padding: 40px 20px 20px;
+		max-width: 100%;
+		overflow-y: auto;
+	}
 	.rte {
 		text-align: left;
 	}
@@ -47,10 +85,18 @@
 	.btn {
 		margin-top: 30px;
 	}
+	@include media-breakpoint-down(sm) {
+		max-width: 100%;
+		margin-right: auto;
+		.btn {
+			margin-top: 22px;
+		}
+	}
 }
 
 .shop-card__popup-text {
 	text-align: left;
+	overflow: auto;
 	.h3 {
 		font-size: 34px;
 		line-height: 40px;
@@ -61,15 +107,13 @@
 		line-height: 25px;
 		margin-bottom: 10px;
 	}
-}
-.shop-card {
-	flex: 1 1 33.33%;
-	max-width: 380px;
-	margin-bottom: 56px;
-	&:not(:nth-of-type(3n)) {
-		margin-right: 30px;
+	@include media-breakpoint-down(sm) {
+		overflow: initial;
+		height: 100%;
+		margin-top: 20px;
 	}
 }
+
 .shop-card__img {
 	position: relative;
 	border-radius: 5px;

@@ -23,13 +23,21 @@
 
 .modal {
 	max-width: 874px;
+	max-height: 558px;
 	width: 100%;
-	position: absolute;
+	overflow: auto;
+	position: relative;
 	z-index: 2000;
 	background: $white;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
 	padding: 40px;
+	@include media-breakpoint-down(md) {
+		margin: 0 20px;
+	}
+	@include media-breakpoint-down(sm) {
+		padding: 20px;
+	}
 }
 
 .modal-close-btn {
@@ -40,8 +48,27 @@
 	color: $purple;
 }
 
+.modal-title {
+	font-size: 32px;
+	line-height: 34px;
+	margin-bottom: 0;
+	.icon {
+		color: $green;
+		margin-right: 10px;
+	}
+	@include media-breakpoint-down(sm) {
+		font-size: 30px;
+		line-height: 36px;
+	}
+}
 .modal-head {
 	text-align: center;
 	padding-bottom: 20px;
 	border-bottom: 1px solid $grey;
+	margin-bottom: 20px;
+}
+.modal-text {
+	font-size: 18px;
+	line-height: 24px;
+	margin-bottom: 10px;
 }

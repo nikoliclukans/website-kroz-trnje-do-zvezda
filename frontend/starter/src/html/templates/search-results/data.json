@@ -7,6 +7,11 @@
 		"header": {
 			">>": "shared/header/data.json"
 		},
+
+		"breadcrumbs": {
+			">>": "modules/breadcrumbs/data.json",
+			"page": "Search results"
+		},
 		"footer": {
 			">>": "shared/footer/data.json"
 		},

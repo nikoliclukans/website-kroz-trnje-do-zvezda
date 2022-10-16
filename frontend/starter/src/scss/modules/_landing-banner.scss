@@ -7,4 +7,10 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+	@include media-breakpoint-down(md) {
+		height: 254px;
+	}
+	@include media-breakpoint-down(sm) {
+		height: 124px;
+	}
 }
