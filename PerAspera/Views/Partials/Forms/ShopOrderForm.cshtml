@@ -1,4 +1,5 @@
 ﻿@model PerAspera.Models.ViewModels.ShopOrderDto
+@using AspNetCore.ReCaptcha
 
 
 <div class="order-form">
@@ -61,7 +62,12 @@
 
 					</div>
 				</div>
+						
+				<div class="form-box__field" >
+					@Html.ReCaptcha(language: "sr")
+				</div>
 				<span class="form-text">* Obavezna polja</span>
+		
 				<button type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
 			</form>
 		</div>

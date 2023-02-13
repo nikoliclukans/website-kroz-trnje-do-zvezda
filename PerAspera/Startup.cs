@@ -1,6 +1,7 @@
 using PerAspera.Extensions;
 using PerAspera.Infrastructure.Search.Configurations;
 using PerAspera.Infrastructure.Search;
+using AspNetCore.ReCaptcha;
 
 namespace PerAspera
 {
@@ -40,6 +41,7 @@ namespace PerAspera
                 .AddCustomServices()
                 .Build();
 
+            services.AddReCaptcha(_config.GetSection("ReCaptcha"));
            
         }
 

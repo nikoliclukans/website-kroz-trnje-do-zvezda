@@ -13,6 +13,7 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Infrastructure.Persistence;
 using Umbraco.Cms.Web.Website.Controllers;
+using AspNetCore.ReCaptcha;
 
 namespace PerAspera.Controllers.Surface
 {
@@ -31,6 +32,7 @@ namespace PerAspera.Controllers.Surface
 			_smtpConfiguration = smtpConfiguration;
 		}
 
+		[ValidateReCaptcha]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public IActionResult Order(ShopOrderDto shopOrderDto)
