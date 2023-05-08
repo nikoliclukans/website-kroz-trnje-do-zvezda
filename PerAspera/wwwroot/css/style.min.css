@@ -1626,7 +1626,7 @@ textarea {
   font-size: 18px;
   line-height: 22px;
   color: rgba(34, 34, 34, 0.7);
-  padding: 14px 20px;
+  padding-left: 5px;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   font-size: 20px;
@@ -1742,7 +1742,33 @@ select::-ms-expand {
   display: -ms-flexbox;
   display: flex;
 }
-@media only screen and (max-width: 767.98px) {
+
+.form-row .ordered-items-format {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  flex-basis: 100%;
+}
+
+.form-row .ordered-items-format-input { 
+       /*flex-basis: 50%;*/
+       width: 30px !important;
+}
+
+/*@media only screen and (max-width: 767.98px) {*/
+    /* CSS rules for screens with width of 768px or less */
+    /*.form-row .ordered-items-format {
+        margin: 5px;
+        display: block;*/ /* Change display to block for stacked layout on smaller screens */
+    /*}
+
+    .form-row .ordered-items-format-input {
+        flex-basis: 100%;*/ /* Reset flex-basis to 100% for input field to take full width */
+    /*}
+}*/
+
+
+/*@media only screen and (max-width: 767.98px) {
   .form-row {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1750,7 +1776,7 @@ select::-ms-expand {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-}
+}*/
 
 .form-submit__msg {
   text-align: center;

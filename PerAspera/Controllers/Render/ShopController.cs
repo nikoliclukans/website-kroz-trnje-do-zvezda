@@ -10,7 +10,7 @@ namespace PerAspera.Controllers.Render
 {
     public class ShopController : RenderController
     {
-        public ShopController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, 
+        public ShopController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine,
             IUmbracoContextAccessor umbracoContextAccessor) : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
         }
@@ -19,7 +19,7 @@ namespace PerAspera.Controllers.Render
         {
             var query = this.HttpContext.Request.Query;
             var currentPage = query.GetUintParameter("page") ?? 1;
-            var maxItemPerPage = 6;
+            var maxItemPerPage = 500;
             var page = this.CurrentPage as Shop;
             var shopQuery = this.CurrentPage.Children<ShopItem>();
 

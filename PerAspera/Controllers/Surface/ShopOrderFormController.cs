@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCore.ReCaptcha;
+using Microsoft.AspNetCore.Mvc;
 using PerAspera.Infrastructure.Configuration;
 using PerAspera.Infrastructure.Implementation;
 using PerAspera.Infrastructure.Interfaces;
-using PerAspera.Models.Generated;
 using PerAspera.Models.ViewModels;
-using System.Text;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -13,7 +12,6 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Infrastructure.Persistence;
 using Umbraco.Cms.Web.Website.Controllers;
-using AspNetCore.ReCaptcha;
 
 namespace PerAspera.Controllers.Surface
 {
@@ -22,10 +20,10 @@ namespace PerAspera.Controllers.Surface
 		private readonly IEmailService _emailService;
 		private readonly SmtpConfiguration _smtpConfiguration;
 
-		public ShopOrderFormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, 
-			ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, 
+		public ShopOrderFormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory,
+			ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger,
 			IPublishedUrlProvider publishedUrlProvider, IEmailService emailService,
-			SmtpConfiguration smtpConfiguration) 
+			SmtpConfiguration smtpConfiguration)
 			: base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
 		{
 			_emailService = emailService;
@@ -37,17 +35,29 @@ namespace PerAspera.Controllers.Surface
 		[ValidateAntiForgeryToken]
 		public IActionResult Order(ShopOrderDto shopOrderDto)
 		{
+			if (shopOrderDto.OrderItems.Count == 0)
+			{
+				return BadRequest();
+			}
+
 			if (!ModelState.IsValid)
 			{
 				return BadRequest();
 			}
 
-			
-			if (!Guid.TryParse(shopOrderDto.OrderItem, out Guid orderItemKey) 
-				|| !TryGetNode(orderItemKey, out IPublishedContent orderItem))
+			var orderdItems = "";
+
+			foreach (var orderedItem in shopOrderDto.OrderItems)
 			{
-				return BadRequest();
+				orderdItems += "Artikal - " + orderedItem.Name + " Kolicina - " + orderedItem.Quantity + " Cena - " + orderedItem.Price + ";";
 			}
+
+
+			//if (!Guid.TryParse(shopOrderDto.OrderItem, out Guid orderItemKey) 
+			//	|| !TryGetNode(orderItemKey, out IPublishedContent orderItem))
+			//{
+			//	return BadRequest();
+			//}
 
 			var message = @$"
                 Ime: {shopOrderDto.Name}
@@ -55,11 +65,12 @@ namespace PerAspera.Controllers.Surface
                 Email: {shopOrderDto.Email}
 				Adresa za slanje: {shopOrderDto.Address}
 				Broj telefona: {shopOrderDto.PhoneNumber}
-				Porucio: {orderItem.Name}
+				Porudzbina: {orderdItems}
                 Poruka: {shopOrderDto.Message}
+                Ukupna cena: {shopOrderDto.TotalPrice}
 				";
 
-			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To, 
+			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
 				$"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
 			return Ok();
@@ -72,6 +83,6 @@ namespace PerAspera.Controllers.Surface
 				   .GetById(nodeKey);
 			return node != null;
 		}
-		   
+
 	}
 }

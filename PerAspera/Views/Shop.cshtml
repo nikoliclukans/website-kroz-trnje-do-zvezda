@@ -51,25 +51,13 @@
 								</div>
 							</div>
 						</div>
-						<button class="btn js-order">Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+						<button class="btn js-order" data-shop-item-name="@shopItem.Name" >Poručite<span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
 					</div>
 				
 				</div>
 				}
 			</div>
 		</div>
-	</div>
-	<div class="wrap">
-		<div class="pagination">
-			<a class="previous @(!Model.ShopItemList.HasPrevious ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.ShopItemList.CurrentPage) - 1))"><i class="font-ico-chevron-left"></i>Prethodna</a>
-			<ul class="pagination-list">
-				@foreach(var item in Enumerable.Range(1, Convert.ToInt32(Model.ShopItemList.TotalPageNumber)))
-				{
-				<li><a class="pagination-button @(Model.ShopItemList.CurrentPage == item ? "active" : string.Empty)" href="@Model.GetPaginatedUrl(item)">@item</a></li>
-				}
-			</ul>
-			<a class="next @(!Model.ShopItemList.HasNext ? "disabled" : string.Empty)" href="@(Model.GetPaginatedUrl(Convert.ToInt32(Model.ShopItemList.CurrentPage) + 1))">Sledeća<i class="font-ico-chevron-right"></i></a>
-	</div>
 	</div>
 	
 @Html.Partial("Forms/ShopOrderForm", new PerAspera.Models.ViewModels.ShopOrderDto(),
