@@ -45,13 +45,25 @@
 						<input asp-for="PhoneNumber" id="phone" type="text">
 						<span asp-validation-for="PhoneNumber"></span>
 					</div>
-					</div>
+				</div>
 				<div class="form-row">
 					<div class="form-box__field">
 						<label for="order-item">Poručujem:</label>
 						<label id="order-message" style="font-weight:bold">Molim Vas odaberite proizvode koje želite da poručite.</label>
 						<div id="ordered-items">
 						</div>
+					</div>
+				</div>
+				<div class="form-row" style="display:none" id="payment-type">
+					<div class="form-box__field">
+						<label>Način plaćanja:</label>
+						<label><input style="width:5%" id="paypal" type="radio" value="PayPal" name="SelectedPaymentOption">PayPal/Kartica</label>
+						<label><input style="width:5%" id="cashondelivery" type="radio" value="CashOnDelivery" name="SelectedPaymentOption">Plaćanje pouzećem</label>
+						<span style="display:none" id="payment-type-error">The Payment type is required.</span>
+					</div>
+				</div>
+				<div class="form-row" style="display:none" id="paypal-tab">
+					<div class="form-box__field">
 					</div>
 				</div>
 				<div class="form-row">

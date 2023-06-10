@@ -1,7 +1,7 @@
-using PerAspera.Extensions;
-using PerAspera.Infrastructure.Search.Configurations;
-using PerAspera.Infrastructure.Search;
 using AspNetCore.ReCaptcha;
+using PerAspera.Extensions;
+using PerAspera.Services.Implementation;
+using PerAspera.Services.Interfaces;
 
 namespace PerAspera
 {
@@ -42,7 +42,8 @@ namespace PerAspera
                 .Build();
 
             services.AddReCaptcha(_config.GetSection("ReCaptcha"));
-           
+            services.AddSingleton<IPaymentService, PayPalService>();
+
         }
 
         /// <summary>
@@ -56,6 +57,8 @@ namespace PerAspera
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection();
 
             app.UseUmbraco()
                 .WithMiddleware(u =>

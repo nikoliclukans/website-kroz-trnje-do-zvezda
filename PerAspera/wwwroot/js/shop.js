@@ -10,6 +10,7 @@
         updateTotalPrice();
         if ($('#ordered-items div[id^="ordereditem-"]').length === 0) {
             $("#order-message").css("display", "inline-block");
+            $("#payment-type").css("display", "none")
             $("#total-price-label").css("display", "none");
             $("#total-price-value").css("display", "none");
         }
@@ -72,6 +73,7 @@
 
     $('.js-order').click(function () {
         $("#order-message").css("display", "none");
+        $("#payment-type").css("display", "inline-block")
 
         var $this = $(this);
         var price = $this.closest('.shop-card__content').find('.shop-card__price').text().replace(/\D/g, '');
@@ -122,10 +124,20 @@
         updateTotalPrice();
     });
 
+    $("#paypal, #cashondelivery").on("change", function () {
+        if ($(this).is(":checked")) {
+            $("#payment-type-error").css("display", "none");
+        }
+    })
+
 
     $("#shop-form-submit-btn").click(function () {
         if ($('#ordered-items div[id^="ordereditem-"]').length === 0) {
             $("#order-message").css("display", "inline-block");
+            return;
+        }
+        if (!$("#paypal").is(":checked") && !$("#cashondelivery").is(":checked")) {
+            $("#payment-type-error").css("display", "inline-block")
             return;
         }
 
@@ -164,6 +176,10 @@
             })
 
             $('#ordered-items-inputs').append(inputName, inputQuantity, inputPrice, inputTotalPrice);
+
+            if ($('#paypal').is(':checked')) {
+
+            }
         });
     });
 
@@ -187,4 +203,29 @@
 
         $("#total-price-value").text(totalPrice.toString() + " RSD");
     };
+
+    var statusParam = getUrlParameter('status');
+
+    function getUrlParameter(name) {
+        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }   
+
+    if (statusParam === "COMPLETED") {
+        console.log('Status is SUCCESS');
+        $('.order-form__content').append($("#shopFormMessage"));
+        $('.order-form__content').find("#shopFormMessage").addClass("show");
+        $('#shopForm').remove();
+
+        var targetDiv = $('#shopFormMessage');
+        if (targetDiv.length) {
+            $('html, body').animate({
+                scrollTop: targetDiv.offset().top
+            }, 1000);
+        }
+    } else if (statusParam === "FAILED") {
+        alert("Vaše plaćanje nije uspešno izvršeno.")
+    }
 });

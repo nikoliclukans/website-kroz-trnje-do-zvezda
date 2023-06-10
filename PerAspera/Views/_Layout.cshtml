@@ -1,4 +1,6 @@
 ﻿@inherits UmbracoViewPage<PerAspera.Models.Generated.IPageBase>
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +33,7 @@
     <script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/js/shop.js"></script>
+    <script src="@Configuration["PayPal:ScriptUrl"]"></script>
 
     <script>
         let optionalCookies = [{

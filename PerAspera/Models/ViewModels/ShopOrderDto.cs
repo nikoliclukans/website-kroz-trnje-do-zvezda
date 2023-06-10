@@ -17,8 +17,8 @@ namespace PerAspera.Models.ViewModels
 		public string? PhoneNumber { get; set; }
 		public List<OrderItemDto> OrderItems { get; set; } = new List<OrderItemDto>();
 		public string? Message { get; set; }
-
 		public decimal TotalPrice { get; set; }
+		public string? SelectedPaymentOption { get; set; }
 	}
 
 	public class OrderItemDto
