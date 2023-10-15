@@ -10,9 +10,12 @@ namespace PerAspera.Controllers.Render
 {
     public class ShopController : RenderController
     {
+        private readonly IConfiguration _config;
+
         public ShopController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine,
-            IUmbracoContextAccessor umbracoContextAccessor) : base(logger, compositeViewEngine, umbracoContextAccessor)
+            IUmbracoContextAccessor umbracoContextAccessor, IConfiguration config) : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
+            _config = config;
         }
 
         public override IActionResult Index()
@@ -23,7 +26,16 @@ namespace PerAspera.Controllers.Render
             var page = this.CurrentPage as Shop;
             var shopQuery = this.CurrentPage.Children<ShopItem>();
 
-            page.ShopItemList = new PaginatedCollectionViewModel<ShopItem>(shopQuery.Skip((Convert.ToInt32(currentPage) - 1) * maxItemPerPage).Take(maxItemPerPage),
+            var exchangeRate = _config.GetValue<decimal>("PayPal:ExchangeRate");
+            var payPalClientId = _config.GetValue<string>("PayPal:ClientId");
+            var payPalCurrency = _config.GetValue<string>("PayPal:PaymentCurrency");
+            var payPalScript = "https://www.paypal.com/sdk/js?client-id=" + payPalClientId + "&currency=" + payPalCurrency;
+
+			ViewBag.ExchangeRate = exchangeRate;
+            ViewBag.PayPalScript = payPalScript;
+            ViewBag.PayPalCurrency = payPalCurrency;
+
+			page.ShopItemList = new PaginatedCollectionViewModel<ShopItem>(shopQuery.Skip((Convert.ToInt32(currentPage) - 1) * maxItemPerPage).Take(maxItemPerPage),
                 (uint)shopQuery.Count(), (uint)maxItemPerPage, currentPage);
 
             return CurrentTemplate(page);

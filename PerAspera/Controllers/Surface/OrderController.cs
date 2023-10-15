@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PerAspera.Infrastructure.Configuration;
+using PerAspera.Infrastructure.Implementation;
 using PerAspera.Infrastructure.Interfaces;
 using PerAspera.Models.DTOs;
 using PerAspera.Models.ViewModels;
@@ -68,14 +69,14 @@ namespace PerAspera.Controllers.Surface
                 Email: {shopOrderDto.Email}
 				Adresa za slanje: {shopOrderDto.Address}
 				Broj telefona: {shopOrderDto.PhoneNumber}
-				Porudzbina: {orderedItems}
+				Porudžbina: {orderedItems}
                 Poruka: {shopOrderDto.Message}
                 Ukupna cena: {shopOrderDto.TotalPrice}
-                Način plaćanja: {shopOrderDto.SelectedPaymentOption}
+                Način plaćanja: Pouzećem
 				";
 
-                //_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
-                //$"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
+                _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
+                $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
                 return Redirect($"/shop?status={response.Status}");
             }

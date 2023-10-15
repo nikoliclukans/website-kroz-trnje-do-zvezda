@@ -11,79 +11,104 @@
 				  asp-antiforgery="true" data-ajax="true" data-ajax-method="POST"
 				  data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
 				  data-ajax-success="OnSuccess" data-ajax-complete="OnComplete" id="shopForm">
-				<div class="form-row">
-					<div class="form-box__field">
-						<label for="name">Ime</label>
-						<input asp-for="Name" id="name" type="text">
-						<span asp-validation-for="Name"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-box__field">
-						<label for="lastName">Prezime</label>
-						<input asp-for="Surename" id="lastname" type="text">
-						<span asp-validation-for="Surename"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-box__field">
-						<label for="email">Email</label>
-						<input asp-for="Email" id="email" type="text">
-						<span asp-validation-for="Email"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-box__field">
-						<label for="address">Adresa za slanje</label>
-						<input asp-for="Address" id="address" type="text">
-						<span asp-validation-for="Address"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-box__field">
-						<label for="phone">Broj telefona</label>
-						<input asp-for="PhoneNumber" id="phone" type="text">
-						<span asp-validation-for="PhoneNumber"></span>
-					</div>
-				</div>
+
+
 				<div class="form-row">
 					<div class="form-box__field">
 						<label for="order-item">Poručujem:</label>
 						<label id="order-message" style="font-weight:bold">Molim Vas odaberite proizvode koje želite da poručite.</label>
-						<div id="ordered-items">
+						<div id="ordered-items" class="disabled-cart">
 						</div>
 					</div>
 				</div>
+
 				<div class="form-row" style="display:none" id="payment-type">
 					<div class="form-box__field">
 						<label>Način plaćanja:</label>
-						<label><input style="width:5%" id="paypal" type="radio" value="PayPal" name="SelectedPaymentOption">PayPal/Kartica</label>
-						<label><input style="width:5%" id="cashondelivery" type="radio" value="CashOnDelivery" name="SelectedPaymentOption">Plaćanje pouzećem</label>
+						<label><input style="width:5%" type="radio" id="cashondelivery" name="SelectedPaymentOption" value="CashOnDelivery" checked> Plaćanje pouzećem</label>
+						<label><input style="width:5%" type="radio" name="SelectedPaymentOption" value="PayPal"> PayPal/Kartica</label>
 						<span style="display:none" id="payment-type-error">The Payment type is required.</span>
 					</div>
 				</div>
-				<div class="form-row" style="display:none" id="paypal-tab">
-					<div class="form-box__field">
-					</div>
-				</div>
+
 				<div class="form-row">
 					<label id="total-price-label" style="display:none; font-weight:bold">Ukupan iznos:&nbsp &nbsp</label>
 					<label id="total-price-value"></label>
 				</div>
-				<div class="form-row">
-					<div class="form-box__field">
-						<label for="msg">Poruka</label>
-						<textarea asp-for="Message" cols="30" rows="7"></textarea>
+
+				<div class="personal-info" style="display: none;">
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="name">Ime</label>
+							<input asp-for="Name" id="name" type="text">
+							<span asp-validation-for="Name"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="lastName">Prezime</label>
+							<input asp-for="Surename" id="lastname" type="text">
+							<span asp-validation-for="Surename"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="email">Email</label>
+							<input asp-for="Email" id="email" type="text">
+							<span asp-validation-for="Email"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="address">Adresa za slanje</label>
+							<input asp-for="Address" id="address" type="text">
+							<span asp-validation-for="Address"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="phone">Broj telefonaaa</label>
+							<input asp-for="PhoneNumber" id="phone" type="text">
+							<span asp-validation-for="PhoneNumber"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="msg">Poruka</label>
+							<textarea asp-for="Message" cols="30" rows="7"></textarea>
+						</div>
 					</div>
 				</div>
-						
-				<div class="form-box__field" >
-					@Html.ReCaptcha(language: "sr")
+
+				<script src="@ViewBag.PayPalScript"></script>
+
+				<script src="/js/paypal-payment.js"></script>
+
+				<script src="~/js/paypal-buttons.js"></script>
+
+				<div class="form-row">
+					<div class="form-box__field">
+						<div id="paypal-button-container" class="paypal-info" style="display: none;" data-total-amount="0.00" exchange-rate="@ViewBag.ExchangeRate" currency="@ViewBag.PayPalCurrency"></div>
+					</div>
 				</div>
-				<div id="ordered-items-inputs"></div>
-				<button id="shop-form-submit-btn" type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+
+				<div class="personal-info" style="display: none;">
+					<div class="form-box__field">
+						@Html.ReCaptcha(language: "sr")
+					</div>
+					<div id="ordered-items-inputs"></div>
+					<button id="shop-form-submit-btn" type="submit" class="btn">Pošalji <span class="icon font-ico-chevron-right"><span class="sr-only">Icon right</span></span></button>
+				</div>
 			</form>
 		</div>
 	</div>
 </div>
+<style>
+	.disabled-cart {
+		cursor: not-allowed;
+		pointer-events: none;
+		opacity: 0.5;
+	}
+</style>
+
 

@@ -1,6 +1,7 @@
 ﻿using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
 using PerAspera.Infrastructure.Configuration;
+using PerAspera.Infrastructure.Implementation;
 using PerAspera.Infrastructure.Interfaces;
 using PerAspera.Models.ViewModels;
 using PerAspera.Services.Interfaces;
@@ -90,8 +91,8 @@ namespace PerAspera.Controllers.Surface
 				Način plaćanja: {shopOrderDto.SelectedPaymentOption}
 				";
 
-                //_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
-                //    $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
+                _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
+                    $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
                 return Ok();
             }

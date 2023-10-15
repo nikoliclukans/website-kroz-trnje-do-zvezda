@@ -66,7 +66,7 @@
             }
         });
         var currentPrice = parseInt(currentQuantity) * parseFloat(price);
-        priceLabel.text(currentPrice.toString()+" RSD");
+        priceLabel.text(currentPrice.toString() + " RSD");
 
         updateTotalPrice();
     });
@@ -148,24 +148,24 @@
             var name = $div.attr('id').substring($div.attr('id').indexOf("ordereditem-") + "ordereditem-".length);
 
             var inputName = $('<input>').attr({
-            type: 'hidden',
-            id: 'orderedItemName-' + name,
-            name: 'OrderItems[' + index + '].Name',
-            value: $("#ordered-item-name-" + name).text()
+                type: 'hidden',
+                id: 'orderedItemName-' + name,
+                name: 'OrderItems[' + index + '].Name',
+                value: $("#ordered-item-name-" + name).text()
             });
 
             var inputQuantity = $('<input>').attr({
-            type: 'hidden',
-            id: 'orderedItemQuantity-' + name,
-            name: 'OrderItems[' + index + '].Quantity',
-            value: $("#ordered-item-quantity-" + name).val()
+                type: 'hidden',
+                id: 'orderedItemQuantity-' + name,
+                name: 'OrderItems[' + index + '].Quantity',
+                value: $("#ordered-item-quantity-" + name).val()
             });
 
             var inputPrice = $('<input>').attr({
-            type: 'hidden',
-            id: 'orderedItemPrice-' + name,
-            name: 'OrderItems[' + index + '].Price',
-            value: parseFloat($("#ordered-item-price-" + name).text().replace(/\D + /g, ''))
+                type: 'hidden',
+                id: 'orderedItemPrice-' + name,
+                name: 'OrderItems[' + index + '].Price',
+                value: parseFloat($("#ordered-item-price-" + name).text().replace(/\D + /g, ''))
             });
 
             var inputTotalPrice = $('<input>').attr({
@@ -201,7 +201,9 @@
             totalPrice += parseFloat(price) * parseInt(quantity);
         });
 
+
         $("#total-price-value").text(totalPrice.toString() + " RSD");
+        $('#paypal-button-container').attr('data-total-amount', totalPrice);
     };
 
     var statusParam = getUrlParameter('status');
@@ -211,13 +213,14 @@
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
         var results = regex.exec(location.search);
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }   
+    }
+
 
     if (statusParam === "COMPLETED") {
-        console.log('Status is SUCCESS');
         $('.order-form__content').append($("#shopFormMessage"));
         $('.order-form__content').find("#shopFormMessage").addClass("show");
         $('#shopForm').remove();
+
 
         var targetDiv = $('#shopFormMessage');
         if (targetDiv.length) {
@@ -225,6 +228,8 @@
                 scrollTop: targetDiv.offset().top
             }, 1000);
         }
+
+        
     } else if (statusParam === "FAILED") {
         alert("Vaše plaćanje nije uspešno izvršeno.")
     }
