@@ -29,6 +29,7 @@
     <meta property="og:image:alt" content="">
     <!-- main css file -->
     <link rel="stylesheet" href="~/css/style.min.css?v=12311231231">
+    <script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
     <!-- global js file -->
     <script src="~/js/shop.js" type="module"></script>
     <script src="@Configuration["PayPal:ScriptUrl"]"></script>
@@ -145,6 +146,7 @@
                 };
             }
         }
+        CookieControl.load(config);
     </script>
     <!-- http://PROJECTNAME.emperordev.com/ -->
     <!-- globalVars -> cookieCivic = true -->
