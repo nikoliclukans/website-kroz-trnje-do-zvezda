@@ -88,7 +88,7 @@ Broj telefona: {shopOrderDto.PhoneNumber}
 Porudzbina: {orderdItems}
 Poruka: {shopOrderDto.Message}
 Ukupna cena: {shopOrderDto.TotalPrice}
-Način plaćanja: {shopOrderDto.SelectedPaymentOption}
+Način plaćanja: 'Pouzećem'
 ";
 
 
