@@ -36,12 +36,11 @@ namespace PerAspera.Controllers.Surface
             _config = config;
         }
 
-        [ValidateReCaptcha]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Order(ShopOrderDto shopOrderDto)
         {
-            if (shopOrderDto.OrderItems.Count == 0)
+             if (shopOrderDto.OrderItems.Count == 0)
             {
                 return BadRequest();
             }
@@ -55,29 +54,13 @@ namespace PerAspera.Controllers.Surface
             {
                 return BadRequest();
             }
+            
+            var orderdItems = "";
 
-            if (shopOrderDto.SelectedPaymentOption == "PayPal")
+            foreach (var orderedItem in shopOrderDto.OrderItems)
             {
-                var purchaseKey = Guid.NewGuid().ToString();
-
-                var exchangeRate = _config.GetValue<decimal>("PayPal:ExchangeRate");
-
-                var priceInEuros = shopOrderDto.TotalPrice / exchangeRate;
-
-                shopOrderDto.TotalPrice = Math.Round(priceInEuros, 2);
-
-                _runTimeCache.InsertCacheItem<ShopOrderDto>(purchaseKey, () => shopOrderDto, TimeSpan.FromMinutes(15));
-
-                return Redirect($"/umbraco/surface/order/create?key={purchaseKey}&price={shopOrderDto.TotalPrice}");
+                orderdItems += "Artikal - " + orderedItem.Name + " Kolicina - " + orderedItem.Quantity + " Cena - " + orderedItem.Price + ";";
             }
-            else
-            {
-                var orderdItems = "";
-
-                foreach (var orderedItem in shopOrderDto.OrderItems)
-                {
-                    orderdItems += "Artikal - " + orderedItem.Name + " Kolicina - " + orderedItem.Quantity + " Cena - " + orderedItem.Price + ";";
-                }
 
 				var message = $@"
 Ime: {shopOrderDto.Name}
@@ -88,15 +71,14 @@ Broj telefona: {shopOrderDto.PhoneNumber}
 Porudzbina: {orderdItems}
 Poruka: {shopOrderDto.Message}
 Ukupna cena: {shopOrderDto.TotalPrice}
-Način plaćanja: 'Pouzećem'
+Način plaćanja: {shopOrderDto.SelectedPaymentOption}
 ";
 
 
-				_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
-                    $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
+			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
+                $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
-                return Ok();
-            }
+            return Ok();
         }
     }
 }

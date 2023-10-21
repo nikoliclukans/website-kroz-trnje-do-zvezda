@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		var personalRadio = document.querySelector('input[name="SelectedPaymentOption"][value="CashOnDelivery"]');
 		var orderedItemsDiv = document.getElementById('ordered-items');
 		var shopCards = window.parent.document.querySelector('.shop-cards__wrap');
+		var platiButton = document.getElementById('shop-form-submit-btn');
 
 
 		if (personalRadio.checked) {
@@ -22,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			if (shopCards) {
 				shopCards.classList.remove('disabled-cart');
 			}
+			$(platiButton).show();
 		} else {
-			personalInfoElems.forEach(function (e) {
-				e.style.display = 'none';
-			});
+			$(platiButton).hide();
+
 			paypalInfoElems.forEach(function (e) {
 				e.style.display = 'block';
 			});

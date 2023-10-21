@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿const $ = window.jQuery;
+$(document).ready(function () {
 
     $(document).on('click', "[id^='remove-item-']", function () {
         var $this = $(this);

@@ -30,9 +30,9 @@
     <!-- main css file -->
     <link rel="stylesheet" href="~/css/style.min.css?v=12311231231">
     <!-- global js file -->
-    <script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="~/js/shop.js"></script>
+    @*<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>*@
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
+    <script src="~/js/shop.js" type="module"></script>
     <script src="@Configuration["PayPal:ScriptUrl"]"></script>
 
     <script>
@@ -147,7 +147,7 @@
                 };
             }
         }
-        CookieControl.load(config);
+        //CookieControl.load(config);
     </script>
     <!-- http://PROJECTNAME.emperordev.com/ -->
     <!-- globalVars -> cookieCivic = true -->
