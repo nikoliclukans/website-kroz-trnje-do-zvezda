@@ -79,19 +79,20 @@ namespace PerAspera.Controllers.Surface
                     orderdItems += "Artikal - " + orderedItem.Name + " Kolicina - " + orderedItem.Quantity + " Cena - " + orderedItem.Price + ";";
                 }
 
-                var message = @$"
-                Ime: {shopOrderDto.Name}
-				Prezime: {shopOrderDto.Surename}
-                Email: {shopOrderDto.Email}
-				Adresa za slanje: {shopOrderDto.Address}
-				Broj telefona: {shopOrderDto.PhoneNumber}
-				Porudzbina: {orderdItems}
-                Poruka: {shopOrderDto.Message}
-                Ukupna cena: {shopOrderDto.TotalPrice}
-				Način plaćanja: {shopOrderDto.SelectedPaymentOption}
-				";
+				var message = $@"
+Ime: {shopOrderDto.Name}
+Prezime: {shopOrderDto.Surename}
+Email: {shopOrderDto.Email}
+Adresa za slanje: {shopOrderDto.Address}
+Broj telefona: {shopOrderDto.PhoneNumber}
+Porudzbina: {orderdItems}
+Poruka: {shopOrderDto.Message}
+Ukupna cena: {shopOrderDto.TotalPrice}
+Način plaćanja: {shopOrderDto.SelectedPaymentOption}
+";
 
-                _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
+
+				_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
                     $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
                 return Ok();
