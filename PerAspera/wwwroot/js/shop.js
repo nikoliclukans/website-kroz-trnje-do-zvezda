@@ -80,7 +80,7 @@ $(document).ready(function () {
         var price = $this.closest('.shop-card__content').find('.shop-card__price').text().replace(/\D/g, '');
 
         var nameValue = $this.attr('data-shop-item-name');
-        var trimmedName = $.trim(nameValue).replace(/\s+/g, '');
+        var trimmedName = $.trim(nameValue).replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '');
 
         if ($("#ordered-items").find("#ordered-item-name-" + trimmedName).length > 0) {
             var currentQuantity = parseInt($("#ordered-item-quantity-" + trimmedName).val()) + 1;
