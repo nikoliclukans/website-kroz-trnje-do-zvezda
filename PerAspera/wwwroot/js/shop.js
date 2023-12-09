@@ -193,7 +193,7 @@ $(document).ready(function () {
 
             var price;
             $(".shop-card__content").find('h3').filter(function () {
-                if ($.trim($(this).text()).replace(/\s+/g, '') === name) {
+                if ($.trim($(this).text()).replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '') === name) {
                     price = $(this).closest('.shop-card__content').find('.shop-card__price').text().replace(/\D/g, '')
                 }
             });
