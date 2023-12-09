@@ -62,7 +62,7 @@ $(document).ready(function () {
         priceLabel.text("");
         var price;
         $(".shop-card__content").find('h3').filter(function () {
-            if ($.trim($(this).text()).replace(/\s+/g, '') === updatedItemName) {
+            if ($.trim($(this).text()).replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '') === updatedItemName) {
                 price = $(this).closest('.shop-card__content').find('.shop-card__price').text().replace(/\D/g, '')
             }
         });
