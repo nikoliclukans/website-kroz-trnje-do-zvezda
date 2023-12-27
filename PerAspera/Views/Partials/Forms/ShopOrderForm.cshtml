@@ -59,9 +59,16 @@
 					</div>
 					<div class="form-row">
 						<div class="form-box__field">
-							<label for="address">Adresa za slanje</label>
+							<label for="address">Ulica i broj</label>
 							<input asp-for="Address" id="address" type="text">
 							<span asp-validation-for="Address"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-box__field">
+							<label for="city">Grad</label>
+							<input asp-for="City" id="city" type="text">
+							<span asp-validation-for="City"></span>
 						</div>
 					</div>
 					<div class="form-row">

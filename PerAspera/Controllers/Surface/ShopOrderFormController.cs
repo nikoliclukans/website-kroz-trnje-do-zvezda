@@ -66,7 +66,7 @@ namespace PerAspera.Controllers.Surface
 Ime: {shopOrderDto.Name}
 Prezime: {shopOrderDto.Surename}
 Email: {shopOrderDto.Email}
-Adresa za slanje: {shopOrderDto.Address}
+Adresa za slanje: {shopOrderDto.Address}, {shopOrderDto.City}
 Broj telefona: {shopOrderDto.PhoneNumber}
 Porudzbina: {orderdItems}
 Poruka: {shopOrderDto.Message}
