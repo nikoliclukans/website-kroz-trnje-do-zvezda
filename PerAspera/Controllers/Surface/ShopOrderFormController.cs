@@ -62,7 +62,9 @@ namespace PerAspera.Controllers.Surface
                 orderdItems += "Artikal - " + orderedItem.Name + " Kolicina - " + orderedItem.Quantity + " Cena - " + orderedItem.Price + ";";
             }
 
-				var message = $@"
+			string paymentMethod = shopOrderDto.SelectedPaymentOption == "CashOnDelivery" ? "Pouzećem" : "Kartica";
+
+			var message = $@"
 Ime: {shopOrderDto.Name}
 Prezime: {shopOrderDto.Surename}
 Email: {shopOrderDto.Email}
@@ -71,12 +73,28 @@ Broj telefona: {shopOrderDto.PhoneNumber}
 Porudzbina: {orderdItems}
 Poruka: {shopOrderDto.Message}
 Ukupna cena: {shopOrderDto.TotalPrice}
-Način plaćanja: {shopOrderDto.SelectedPaymentOption}
+Način plaćanja: {paymentMethod}
+";
+
+			var messageReply = $@"Hvala vam na kupovini!
+
+Ime: {shopOrderDto.Name}
+Prezime: {shopOrderDto.Surename}
+Email: {shopOrderDto.Email}
+Adresa za slanje: {shopOrderDto.Address}, {shopOrderDto.City}
+Broj telefona: {shopOrderDto.PhoneNumber}
+Porudzbina: {orderdItems}
+Poruka: {shopOrderDto.Message}
+Ukupna cena: {shopOrderDto.TotalPrice}
+Način plaćanja: {paymentMethod}
 ";
 
 
 			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
                 $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
+
+            _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage("cancerinfluencer.org", shopOrderDto.Email,
+                $"Vaša narudžbina sa CancerInfluencer je primljena!\r\n", messageReply, false), new ContactUsEmailTemplate(messageReply));
 
             return Ok();
         }
