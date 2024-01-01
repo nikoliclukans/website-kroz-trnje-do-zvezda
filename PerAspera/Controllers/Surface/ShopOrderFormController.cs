@@ -162,10 +162,10 @@ namespace PerAspera.Controllers.Surface
 
 
 			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
-                $"Porudžbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
+                $"Porudžbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, true), new ContactUsEmailTemplate(message));
 
             _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage("cancerinfluencer.org", shopOrderDto.Email,
-                $"Vaša porudžbina sa cancerinfluencer.org je primljena!\r\n", messageReply, false), new ContactUsEmailTemplate(messageReply));
+                $"Vaša porudžbina sa cancerinfluencer.org je primljena!\r\n", messageReply, true), new ContactUsEmailTemplate(messageReply));
 
             return Ok();
         }
