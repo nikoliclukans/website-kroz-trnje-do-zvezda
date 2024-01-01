@@ -65,36 +65,107 @@ namespace PerAspera.Controllers.Surface
 			string paymentMethod = shopOrderDto.SelectedPaymentOption == "CashOnDelivery" ? "Pouzećem" : "Kartica";
 
 			var message = $@"
-Ime: {shopOrderDto.Name}
-Prezime: {shopOrderDto.Surename}
-Email: {shopOrderDto.Email}
-Adresa za slanje: {shopOrderDto.Address}, {shopOrderDto.City}
-Broj telefona: {shopOrderDto.PhoneNumber}
-Porudzbina: {orderdItems}
-Poruka: {shopOrderDto.Message}
-Ukupna cena: {shopOrderDto.TotalPrice}
-Način plaćanja: {paymentMethod}
-";
+<html>
+<body>
+    <table border='1' style='border-collapse: collapse;'>
+        <tr>
+            <th style='text-align: left;'>Ime</th>
+            <td>{shopOrderDto.Name}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Prezime</th>
+            <td>{shopOrderDto.Surename}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Email</th>
+            <td>{shopOrderDto.Email}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Adresa za slanje</th>
+            <td>{shopOrderDto.Address}, {shopOrderDto.City}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Broj telefona</th>
+            <td>{shopOrderDto.PhoneNumber}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Porudžbina</th>
+            <td>{orderdItems}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Poruka</th>
+            <td>{shopOrderDto.Message}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Ukupna cena</th>
+            <td>{shopOrderDto.TotalPrice}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Način plaćanja</th>
+            <td>{paymentMethod}</td>
+        </tr>
+    </table>
+</body>
+</html>";
 
-			var messageReply = $@"Hvala vam na kupovini!
+			var messageReply = $@"
+<html>
+<body>
+    <p><strong>Hvala vam što ste poručili sa našeg sajta!</strong></p>
 
-Ime: {shopOrderDto.Name}
-Prezime: {shopOrderDto.Surename}
-Email: {shopOrderDto.Email}
-Adresa za slanje: {shopOrderDto.Address}, {shopOrderDto.City}
-Broj telefona: {shopOrderDto.PhoneNumber}
-Porudzbina: {orderdItems}
-Poruka: {shopOrderDto.Message}
-Ukupna cena: {shopOrderDto.TotalPrice}
-Način plaćanja: {paymentMethod}
-";
+    <p>Vaša porudžbina je uspešno primljena i možete je očekivati u roku od 1-2 radna dana. Pakete šaljemo Post Expressom. Hvala Vam na poverenju i što ste odabrali naše proizvode koji će Vam pomoći da promenite Vaš životni stil!</p>
+
+    <p>S poštovanjem,</p>
+    <p>Nastasja & Nemanja</p>
+
+    <table border='1' style='border-collapse: collapse;'>
+        <tr>
+            <th style='text-align: left;'>Ime</th>
+            <td>{shopOrderDto.Name}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Prezime</th>
+            <td>{shopOrderDto.Surename}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Email</th>
+            <td>{shopOrderDto.Email}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Adresa za slanje</th>
+            <td>{shopOrderDto.Address}, {shopOrderDto.City}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Broj telefona</th>
+            <td>{shopOrderDto.PhoneNumber}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Porudžbina</th>
+            <td>{orderdItems}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Poruka</th>
+            <td>{shopOrderDto.Message}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Ukupna cena</th>
+            <td>{shopOrderDto.TotalPrice}</td>
+        </tr>
+        <tr>
+            <th style='text-align: left;'>Način plaćanja</th>
+            <td>{paymentMethod}</td>
+        </tr>
+    </table>
+</body>
+</html>";
+
 
 
 			_emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage(_smtpConfiguration.From, _smtpConfiguration.To,
-                $"Porudzbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
+                $"Porudžbina od strane {shopOrderDto.Name} {shopOrderDto.Surename}", message, false), new ContactUsEmailTemplate(message));
 
             _emailService.Send(new Umbraco.Cms.Core.Models.Email.EmailMessage("cancerinfluencer.org", shopOrderDto.Email,
-                $"Vaša narudžbina sa CancerInfluencer je primljena!\r\n", messageReply, false), new ContactUsEmailTemplate(messageReply));
+                $"Vaša porudžbina sa cancerinfluencer.org je primljena!\r\n", messageReply, false), new ContactUsEmailTemplate(messageReply));
 
             return Ok();
         }
